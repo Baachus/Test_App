@@ -28,8 +28,8 @@ class TestViews(TestCase):
     def test_register_user_POST(self):
         response = self.client.post(self.register_url, {
             'username': 'testuser2',
-            'password1': 'testpass123',
-            'password2': 'testpass123',
+            'password1': 'test_pass123',
+            'password2': 'test_pass123',
             'email': 'testuser2@example.com'
         })
         self.assertEqual(response.status_code, 302)  # Check for redirect
