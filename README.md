@@ -1,8 +1,8 @@
-# Project Title
+# Scooby-Doo Family Tree
 
 ## Description
 
-A brief description of what this project does and who it's for.
+This project is a Django/Python website built for testing purposes.  It currently shows the relationships of characters to Scooby-Doo and the Gang.  It also has a project builtin for utilizing PyTest with Playwright.
 
 ## Installation
 
@@ -16,12 +16,9 @@ py manage.py runserver
 
 ## Usage
 
-
-## Contributing
-
-
 ## Tests
 
 ## License
 
 ## Contact
+Email - bc.robert@gmail.com
