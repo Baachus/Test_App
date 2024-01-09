@@ -1,0 +1,14 @@
+{% extends 'family_tree/pages/layout.html' %}
+
+{% block content %}
+ <h1>Register</h1>
+ <form method="POST">
+    {% csrf_token %}
+    <!-- Add your form fields and submit button here -->
+    <input type="text" name="username" placeholder="Username" required><br />
+    <input type="password" name="password1" placeholder="Password" required><br />
+    <input type="password" name="password2" placeholder="Confirm Password" required><br />
+    <input type="email" name="email" placeholder="Email" required><br />
+    <button type="submit">Register</button>
+</form>
+{% endblock %}

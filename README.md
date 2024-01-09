@@ -9,9 +9,9 @@ A brief description of what this project does and who it's for.
 Step by step series of examples and explanations about how to get a development environment running.
 
 ```bash
-git clone <your-repo-link>
-cd <your-repo-name>
-npm install
+py manage.py makemigrations
+py manage.py migrate
+py manage.py runserver
 ```
 
 ## Usage

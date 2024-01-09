@@ -1,0 +1,13 @@
+{% extends 'family_tree/pages/layout.html' %}
+
+{% block content %}
+ <h1>Login</h1>
+ <form method="POST">
+    {% csrf_token %}
+    <!-- Add your form fields and submit button here -->
+    <input type="text" name="username" placeholder="Username" required>
+    <input type="password" name="password" placeholder="Password" required>
+    <input type="submit" value="Login">
+</form>
+<p>New here? <a href='{% url "family_tree:register" %}'>Register Here</a></p>
+{% endblock %}
