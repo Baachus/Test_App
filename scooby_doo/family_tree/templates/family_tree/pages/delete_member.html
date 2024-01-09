@@ -1,0 +1,11 @@
+{% extends 'family_tree/pages/layout.html' %}
+{% block content %}
+    <div class="input-container">
+        <form method="POST" action="{% url 'family_tree:delete_member' %}">
+            {% csrf_token %}
+            {{ form }}
+            <button id="addMember" class="btn btn-primary">Remove Family Member</button>
+        </form>
+    </div>
+{% endblock %}
+```

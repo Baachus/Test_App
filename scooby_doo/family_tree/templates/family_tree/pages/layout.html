@@ -10,6 +10,24 @@
         <link rel="stylesheet" href="{% static 'family_tree/css/style.css' %}">
     </head>
     <body>
+        <div class="header">
+        {% if user.is_authenticated %}
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="#">Scooby-Doo Family Tree</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link" href="{% url 'family_tree:index' %}">Home</a>
+                    <a class="nav-item nav-link" href="{% url 'family_tree:add_member' %}">Add Family Member</a>
+                    <a class="nav-item nav-link" href="{% url 'family_tree:delete_member' %}">Remove Family Member</a>
+                    <a class="nav-item nav-link" href="{% url 'family_tree:logout' %}">Logout</a>
+                </div>
+                </div>
+            </nav>
+        {% endif %}
+        </div>
         <div class="app-container">
             {% block content %}
             {% endblock %}

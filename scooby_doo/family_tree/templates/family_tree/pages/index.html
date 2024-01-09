@@ -1,6 +1,24 @@
 {% extends 'family_tree/pages/layout.html' %}
 {% block content %}
-<a href="{% url 'family_tree:logout' %}">Logout</a>
-<h1>Hello</h1>
+    <div id="family-tree-container" class="nt-4">
+        <table class="table">
+            <thread>
+                <th scope="col">Name</th>
+                <th scope="col">Relationship</th>
+                <th scope="col">Related Scooby-Gang Member</th>
+                <th scope="col">Appearance</th>
+            </thread>
+            <tbody>
+                {% for member in family %}
+                    <tr id="{{member.id}}">
+                        <td id="{{member.id}}_name">{{ member.name }}</td>
+                        <td id="{{member.id}}_relationship">{{ member.relationship }}</td>
+                        <td id="{{member.id}}_gang">{{ member.gang }}</td>
+                        <td id="{{member.id}}_appearance">{{ member.appearance }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}
 ```

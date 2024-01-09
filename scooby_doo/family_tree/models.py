@@ -13,4 +13,4 @@ class FamilyModel(models.Model):
     name = models.CharField(max_length=100)
     gang = models.CharField(max_length=100)
     relationship = models.TextField(max_length=200)
-    appearance = models.IntegerField()
+    appearance = models.TextField(max_length=200)
