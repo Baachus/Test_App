@@ -20,7 +20,13 @@
     },
     "peacock.color": "#13321c",
     "cSpell.words": [
+        "Dinkley",
         "Scooby",
-        "Shaggy",
-    ]
+        "Shaggy"
+    ],
+    "python.testing.pytestArgs": [
+        "scooby_doo_test"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
 }

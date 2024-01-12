@@ -67,6 +67,10 @@ class DeleteMemberForm(forms.Form):
     This class is used to delete the members from the family tree app.
     It includes a field for the ID of the member to be deleted.
     '''
+    
+    def __init__(self, *args, **kwargs):
+        super(DeleteMemberForm, self).__init__(*args, **kwargs)
+        self.fields['id'].widget.attrs.update({'id': 'id_to_remove'})
 
     # Define the form field
     id = forms.IntegerField(
@@ -74,5 +78,5 @@ class DeleteMemberForm(forms.Form):
         widget=forms.TextInput(
             attrs={'class': 'form-control', 'placeholder': 'ID of the member you want to remove...'}
             ),
-        label=''
+        label='',
     )

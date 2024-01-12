@@ -3,9 +3,13 @@
     <div class="input-container">
         <form method="POST" action="{% url 'family_tree:delete_member' %}">
             {% csrf_token %}
-            {{ form }}
-            <button id="addMember" class="btn btn-primary">Remove Family Member</button>
+            {% for field in form %}
+                <div class="fieldWrapper">
+                    {{ field.errors }}
+                    {{ field }}.
+                </div>
+            {% endfor %}
+            <button id="removeMember" class="btn btn-primary">Remove Family Member</button>
         </form>
     </div>
 {% endblock %}
-```

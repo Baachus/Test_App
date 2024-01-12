@@ -1,6 +1,6 @@
 {% extends 'family_tree/pages/layout.html' %}
 {% block content %}
-    <div id="family-tree-container" class="nt-4">
+    <div data-testid="family-tree-container" class="nt-4">
         <table class="table">
             <thread>
                 <th scope="col">Name</th>
@@ -10,11 +10,11 @@
             </thread>
             <tbody>
                 {% for member in family %}
-                    <tr id="{{member.id}}">
-                        <td id="{{member.id}}_name">{{ member.name }}</td>
-                        <td id="{{member.id}}_relationship">{{ member.relationship }}</td>
-                        <td id="{{member.id}}_gang">{{ member.gang }}</td>
-                        <td id="{{member.id}}_appearance">{{ member.appearance }}</td>
+                    <tr data-testid="{{member.id}}">
+                        <td data-testid="name_{{member.id}}">{{ member.name }}</td>
+                        <td data-testid="relationship_{{member.id}}">{{ member.relationship }}</td>
+                        <td data-testid="gang_{{member.id}}">{{ member.gang }}</td>
+                        <td data-testid="appearance_{{member.id}}">{{ member.appearance }}</td>
                     </tr>
                 {% endfor %}
             </tbody>

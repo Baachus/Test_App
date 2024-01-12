@@ -127,7 +127,11 @@ def delete_member(request):
     It handles both the GET and POST requests for the delete member page.
     '''
     if request.method=="POST":
-        member = FamilyModel.objects.get(id=request.POST.get('id'))
+        id_to_remove = request.POST.get('id')
+        try:
+            member = FamilyModel.objects.get(id=id_to_remove)
+        except FamilyModel.DoesNotExist:
+            return HttpResponse('Invalid ID', status=400)
         member.delete()
         return HttpResponseRedirect(reverse('family_tree:index'))
     else:

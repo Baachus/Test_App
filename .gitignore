@@ -1,2 +1,6 @@
 .vscode
 .vscode/settings.json
+.auth
+.pytest_cache
+__pycache__
+```
