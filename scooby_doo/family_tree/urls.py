@@ -7,10 +7,13 @@ This file is used to create the URL patterns for the family tree app.
 from django.urls import path
 
 # Local imports
-from .views import index, login_user, logout_user, register_user, add_member, delete_member, view_member, edit_member
+from .views import index, login_user, logout_user, register_user
+from .views import add_member, delete_member, view_member, edit_member
 
 # Define the app name
+#pylint: disable=invalid-name
 app_name = 'family_tree'
+#pylint: enable=invalid-name
 
 # Define the URL patterns
 urlpatterns = [

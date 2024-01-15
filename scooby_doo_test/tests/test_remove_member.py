@@ -28,7 +28,7 @@ def test_remove_new_member(page: Page, setup):
     expect(page.get_by_test_id(f"relationship_{index}")).to_have_count(0)
 
 
-def test_remove_invalid_member(page: Page, setup):
+def test_remove_invalid_member(setup):
     '''Test login to remove a new member to the family tree application'''
     login_page = setup["login"]
     header_page = setup["header"]

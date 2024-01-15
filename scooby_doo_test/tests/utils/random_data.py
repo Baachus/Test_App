@@ -2,6 +2,7 @@
 from random import choice
 
 class RandomData():
+    '''Random data for testing'''
     def random_relationship(self):
         '''Return a random relationship'''
         relationships = [
@@ -22,7 +23,7 @@ class RandomData():
             "Great-Granddaughter"
         ]
         return choice(relationships)
-    
+
     def random_gang(self):
         '''Return a random member of the Scooby-Gang'''
         gangs = [

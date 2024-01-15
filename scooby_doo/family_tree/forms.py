@@ -22,12 +22,13 @@ class FamilyForm(forms.Form):
             ),
         label=''
     )
-    
+
     gang = forms.CharField(
         max_length=100,
         required=True,
         widget=forms.TextInput(
-            attrs={'class': 'form-control', 'placeholder': 'Add who they are related too in the Scooby gang...'}
+            attrs={'class': 'form-control',
+                   'placeholder': 'Add who they are related too in the Scooby gang...'}
             ),
         label=''
     )
@@ -45,7 +46,8 @@ class FamilyForm(forms.Form):
         max_length=200,
         required=False,
         widget=forms.Textarea(
-            attrs={'class': 'form-control', 'placeholder': 'Add when they appeared in the show/movie...', 'rows': 3}
+            attrs={'class': 'form-control',
+                   'placeholder': 'Add when they appeared in the show/movie...', 'rows': 3}
             ),
         label=''
     )
@@ -67,7 +69,7 @@ class DeleteMemberForm(forms.Form):
     This class is used to delete the members from the family tree app.
     It includes a field for the ID of the member to be deleted.
     '''
-    
+
     def __init__(self, *args, **kwargs):
         super(DeleteMemberForm, self).__init__(*args, **kwargs)
         self.fields['id'].widget.attrs.update({'id': 'id_to_remove'})
@@ -76,7 +78,8 @@ class DeleteMemberForm(forms.Form):
     id = forms.IntegerField(
         required=True,
         widget=forms.TextInput(
-            attrs={'class': 'form-control', 'placeholder': 'ID of the member you want to remove...'}
+            attrs={'class': 'form-control',
+                   'placeholder': 'ID of the member you want to remove...'}
             ),
         label='',
     )

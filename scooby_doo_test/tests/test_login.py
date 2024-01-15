@@ -2,7 +2,7 @@
 # import pytest
 from playwright.sync_api import Page, expect
 
-def test_login_to_family_tree(page: Page, setup):
+def test_login_to_family_tree(setup):
     '''Test login to family tree application'''    
     login_page = setup["login"]
     header_page = setup["header"]

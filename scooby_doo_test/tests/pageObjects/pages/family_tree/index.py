@@ -7,10 +7,10 @@ class Home():
 
     def get_index(self, name):
         '''Get the index of the member in the family tree'''
-        id = self.page.get_by_text(name)
-        id = id.get_attribute("data-testid").split("_")[1]
-        return id
-    
+        index = self.page.get_by_text(name)
+        index = index.get_attribute("data-testid").split("_")[1]
+        return index
+
     def get_row(self, index):
         '''Return the locators of name, relationship, and gang for the member'''
         # Get the values from the row

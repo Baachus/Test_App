@@ -9,7 +9,9 @@ class Login():
         self.page = page
 
         # Get the current directory of the test file
-        project_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..', '..'))
+        project_dir = os.path.abspath(
+                os.path.join(os.path.dirname(__file__), '..', '..', '..', '..')
+            )
 
         # Construct the path to the .env folder
         self.env_folder_path = os.path.join(project_dir, '.env')
@@ -35,7 +37,7 @@ class Login():
             json_file_path = os.path.join(self.auth_folder_path, 'scooby_doo.json')
 
             # Read the JSON file
-            with open(json_file_path, 'r') as file:
+            with open(json_file_path, 'r', encoding="UTF8") as file:
                 data = json.load(file)
 
             username = data['BASIC_USERNAME']

@@ -1,10 +1,6 @@
-from django.db import models
-
-# Create your models here.
+'''This file is used to create the model for the family tree app.'''''
 from django.db import models
 from django.contrib.auth.models import User
-
-# Create your models here.
 
 class FamilyModel(models.Model):
     '''This class is used to create the model for the todo app.'''

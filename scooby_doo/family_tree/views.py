@@ -58,7 +58,6 @@ def register_user(request):
             # Authenticate and login the user, then redirect to login
             username = request.POST.get('username')
             password = request.POST.get('password1')
-            email = request.POST.get('email')
             user = authenticate(username=username, password=password)
             login(request, user)
             return HttpResponseRedirect(reverse('family_tree:login'))
@@ -138,7 +137,7 @@ def delete_member(request):
         family_form = DeleteMemberForm()
         ctx = {"form": family_form}
         return render(request, "family_tree/pages/delete_member.html", ctx)
-    
+
 # View family member detail information
 @login_required(login_url='family_tree:login')
 def view_member(request, member_id):

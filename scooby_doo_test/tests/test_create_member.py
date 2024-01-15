@@ -1,7 +1,7 @@
 '''Playwright tests on the create new member page for the family tree application'''
-from playwright.sync_api import Page, expect
+from playwright.sync_api import expect
 
-def test_create_new_member(page: Page, setup):
+def test_create_new_member(setup):
     '''Test login to create a new member to the family tree application'''
     login_page = setup["login"]
     header_page = setup["header"]
@@ -16,7 +16,6 @@ def test_create_new_member(page: Page, setup):
     header_page.add_family_link.click()
     new_member = add_member_page.create_new_member()
 
-    
     index = home_page.get_index(new_member["name"])
     row = home_page.get_row(index)
 

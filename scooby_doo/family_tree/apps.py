@@ -1,3 +1,4 @@
+'''The FamilyTreeConfig class is used to configure the family tree app'''
 # Django imports
 from django.apps import AppConfig
 

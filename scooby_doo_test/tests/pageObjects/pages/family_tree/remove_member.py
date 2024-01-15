@@ -1,5 +1,4 @@
 '''Remove Member page functionality for the family tree application'''
-import faker
 from utils.random_data import RandomData
 
 class RemoveMember():
@@ -15,4 +14,3 @@ class RemoveMember():
         '''Remove a family member'''
         self.id.fill(str(id_to_remove))
         self.remove_button.click()
-        
