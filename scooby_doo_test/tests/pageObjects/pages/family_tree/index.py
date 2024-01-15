@@ -12,11 +12,10 @@ class Home():
         return id
     
     def get_row(self, index):
-        '''Return the locators of name, relationship, gang, and appearance for the member'''
+        '''Return the locators of name, relationship, and gang for the member'''
         # Get the values from the row
         name = self.page.get_by_test_id(f"name_{index}")
         relationship = self.page.get_by_test_id(f"relationship_{index}")
         gang = self.page.get_by_test_id(f"gang_{index}")
-        appearance = self.page.get_by_test_id(f"appearance_{index}")
 
-        return {"name": name, "gang": gang, "relationship": relationship, "appearance": appearance}
+        return {"name": name, "gang": gang, "relationship": relationship}

@@ -1,0 +1,12 @@
+{% extends 'family_tree/pages/layout.html' %}
+{% block content %}
+    <div class="input-container">
+        <form method="POST" action="{% url 'family_tree:edit_member' member.id%}">
+            {% csrf_token %}
+            {{ form }}
+            <button id="editMember" data-testid="editMember" class="btn btn-primary">Update Family Member</button>
+            <button id="cancel" data-testid="cancel" class="btn btn-primary">Cancel</button>
+        </form>
+    </div>
+{% endblock %}
+```

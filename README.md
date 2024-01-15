@@ -14,7 +14,17 @@ py manage.py migrate
 py manage.py runserver
 ```
 
+To recreate the database run the following
+```bash
+rm db.sqlite3
+py manage.py migrate
+py manage.py loaddata users.json
+py manage.py populate_familymodel
+```
+
 ## Usage
+
+
 
 ## Tests
 

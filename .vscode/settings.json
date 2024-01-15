@@ -20,6 +20,7 @@
     },
     "peacock.color": "#13321c",
     "cSpell.words": [
+        "autouse",
         "Dinkley",
         "Scooby",
         "Shaggy"
@@ -28,5 +29,8 @@
         "scooby_doo_test"
     ],
     "python.testing.unittestEnabled": false,
-    "python.testing.pytestEnabled": true
+    "python.testing.pytestEnabled": true,
+    "cSpell.ignoreWords": [
+        "Dervy"
+    ]
 }

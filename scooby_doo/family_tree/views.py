@@ -138,3 +138,44 @@ def delete_member(request):
         family_form = DeleteMemberForm()
         ctx = {"form": family_form}
         return render(request, "family_tree/pages/delete_member.html", ctx)
+    
+# View family member detail information
+@login_required(login_url='family_tree:login')
+def view_member(request, member_id):
+    '''
+    This function is used to view a family member's detail information.
+    It handles both the GET and POST requests for the view member page.
+    '''
+    try:
+        member = FamilyModel.objects.get(id=member_id)
+    except FamilyModel.DoesNotExist:
+        return HttpResponse('Invalid ID', status=400)
+    ctx = {"member": member}
+    return render(request, "family_tree/pages/view_member.html", ctx)
+
+# Edit family member detail information
+@login_required(login_url='family_tree:login')
+def edit_member(request, member_id):
+    '''
+    This function is used to edit a family member's detail information.
+    It handles both the GET and POST requests for the edit member page.
+    '''
+    try:
+        member = FamilyModel.objects.get(id=member_id)
+        if request.method == "POST":
+            family_form = FamilyForm(request.POST)
+            if family_form.is_valid():
+                member.name = request.POST.get('name')
+                member.relationship = request.POST.get('relationship')
+                member.gang = request.POST.get('gang')
+                member.appearance = request.POST.get('appearance')
+                member.save()
+                return HttpResponseRedirect(reverse('family_tree:index'))
+            else:
+                return HttpResponse("Invalid Form")
+        else:
+            family_form = FamilyForm(instance=member)
+            ctx = {"form": family_form, "member": member}
+            return render(request, "family_tree/pages/edit_member.html", ctx)
+    except FamilyModel.DoesNotExist:
+        return HttpResponse('Invalid ID', status=400)

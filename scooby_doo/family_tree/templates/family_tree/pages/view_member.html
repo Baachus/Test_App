@@ -1,0 +1,12 @@
+{% extends 'family_tree/pages/layout.html' %}
+{% block content %}
+    <div class="display-container">
+        <div class="display-container__item">
+            <h2 data-testid="name">{{ member.name }}</h2>
+            <p data-testid="relationship"><h5>Relationship:</h5> {{ member.relationship }}</p>
+            <p data-testid="gang"><h5>Related Scooby-Doo Gang Member:</h5> {{ member.gang }}</p>
+            <p data-testid="appearance"><h5>Appearance:</h5> {{ member.appearance }}</p>
+        </div>
+    </div>
+{% endblock %}
+```

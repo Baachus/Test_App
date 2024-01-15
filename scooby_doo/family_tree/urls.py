@@ -7,7 +7,7 @@ This file is used to create the URL patterns for the family tree app.
 from django.urls import path
 
 # Local imports
-from .views import index, login_user, logout_user, register_user, add_member, delete_member
+from .views import index, login_user, logout_user, register_user, add_member, delete_member, view_member, edit_member
 
 # Define the app name
 app_name = 'family_tree'
@@ -23,4 +23,6 @@ urlpatterns = [
     path('register/', register_user, name='register'),
     path('add_member/', add_member, name='add_member'),
     path('delete_member/', delete_member, name='delete_member'),
+    path('view_member/<int:member_id>/', view_member, name='view_member'),
+    path('edit_member/<int:member_id>/', edit_member, name='edit_member')
 ]
