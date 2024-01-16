@@ -1,14 +1,14 @@
 import { test, expect } from '@playwright/test';
 
 test('Scooby-Doo Login Title Verification', async ({ page }) => {
-  await page.goto('http://127.0.0.1:8000/family_tree');
+  await page.goto('/family_tree');
 
   // Expect a title "to contain" a substring.
   await expect(page).toHaveTitle(/Scooby-Doo Family Tree/);
 });
 
 test('Test login to family tree application', async ({ page }) => {
-    await page.goto('http://127.0.0.1:8000/family_tree');
+    await page.goto('/family_tree');
 
     // Fill input[name="username"]
     await page.fill('input[name="username"]', 'AutomationUser');
@@ -31,7 +31,7 @@ test('Test login to family tree application', async ({ page }) => {
 
 test('Invalid login to family tree application', async ({ page }) => {
     // Navigate to login page
-    await page.goto('http://127.0.0.1:8000/family_tree');
+    await page.goto('/family_tree');
 
     // Fill input[name="username"]
     await page.fill('input[name="username"]', 'FakeUser');
