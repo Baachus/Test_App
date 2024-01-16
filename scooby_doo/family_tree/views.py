@@ -88,7 +88,9 @@ def index(request):
     It fetches all family members and renders them on the index page.
     '''
     family_form = FamilyForm()
+    #pylint: disable=no-member
     family = FamilyModel.objects.all()
+    #pylint: enable=no-member
     ctx = {'family': family, "form": family_form, "user": request.user}
     return render(request, "family_tree/pages/index.html", ctx)
 
@@ -127,10 +129,12 @@ def delete_member(request):
     '''
     if request.method=="POST":
         id_to_remove = request.POST.get('id')
+        #pylint: disable=no-member
         try:
             member = FamilyModel.objects.get(id=id_to_remove)
         except FamilyModel.DoesNotExist:
             return HttpResponse('Invalid ID', status=400)
+        #pylint: enable=no-member
         member.delete()
         return HttpResponseRedirect(reverse('family_tree:index'))
     else:
@@ -145,10 +149,13 @@ def view_member(request, member_id):
     This function is used to view a family member's detail information.
     It handles both the GET and POST requests for the view member page.
     '''
+
+    #pylint: disable=no-member
     try:
         member = FamilyModel.objects.get(id=member_id)
     except FamilyModel.DoesNotExist:
         return HttpResponse('Invalid ID', status=400)
+    #pylint: enable=no-member
     ctx = {"member": member}
     return render(request, "family_tree/pages/view_member.html", ctx)
 
@@ -160,7 +167,9 @@ def edit_member(request, member_id):
     It handles both the GET and POST requests for the edit member page.
     '''
     try:
+        #pylint: disable=no-member
         member = FamilyModel.objects.get(id=member_id)
+        #pylint: enable=no-member
         if request.method == "POST":
             family_form = FamilyForm(request.POST)
             if family_form.is_valid():
@@ -174,7 +183,9 @@ def edit_member(request, member_id):
                 return HttpResponse("Invalid Form")
         else:
             family_form = FamilyForm(instance=member)
-            ctx = {"form": family_form, "member": member}
+            ctx = {"member": member, "form": family_form}
             return render(request, "family_tree/pages/edit_member.html", ctx)
+    #pylint: disable=no-member
     except FamilyModel.DoesNotExist:
+    #pylint: enable=no-member
         return HttpResponse('Invalid ID', status=400)

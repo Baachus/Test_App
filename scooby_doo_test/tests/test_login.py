@@ -13,7 +13,6 @@ def test_login_to_family_tree(setup):
     # Check that the user is logged in
     expect(header_page.logout_link).to_have_text("Logout")
 
-
     # Log out of the family tree application
     header_page.logout()
 

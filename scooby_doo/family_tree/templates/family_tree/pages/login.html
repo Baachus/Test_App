@@ -6,9 +6,9 @@
     <form method="POST">
         {% csrf_token %}
         <!-- Add your form fields and submit button here -->
-        <input type="text" name="username" placeholder="Username" required>
-        <input type="password" name="password" placeholder="Password" required>
-        <input type="submit" value="Login">
+        <input type="text" data-testid="username" name="username" placeholder="Username" required>
+        <input type="password" data-testid="password" name="password" placeholder="Password" required>
+        <input type="submit" data-testid="login" value="Login">
     </form>
     <p>New here? <a href='{% url "family_tree:register" %}'>Register Here</a></p>
 </div>

@@ -5,6 +5,8 @@ This file is used to create the URL patterns for the family tree app.
 
 # Django imports
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 
 # Local imports
 from .views import index, login_user, logout_user, register_user
@@ -29,3 +31,6 @@ urlpatterns = [
     path('view_member/<int:member_id>/', view_member, name='view_member'),
     path('edit_member/<int:member_id>/', edit_member, name='edit_member')
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

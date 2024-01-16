@@ -7,6 +7,9 @@
             <p data-testid="gang"><h5>Related Scooby-Doo Gang Member:</h5> {{ member.gang }}</p>
             <p data-testid="appearance"><h5>Appearance:</h5> {{ member.appearance }}</p>
         </div>
+        <div class="display-container__item">
+            <img src="{{ member.image.url }}" alt="Image of {{ member.name }}" data-testid="image">
+        </div>
     </div>
 {% endblock %}
 ```
