@@ -1,6 +1,6 @@
 '''Populates the FamilyModel table with data if it is empty'''
 from django.core.management.base import BaseCommand
-from family_tree.models import FamilyModel  # replace with the actual import path of your model
+from family_tree.models import FamilyModel
 
 class Command(BaseCommand):
     '''Populates the FamilyModel table with data if it is empty'''

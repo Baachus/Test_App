@@ -9,5 +9,5 @@ class FamilyModel(models.Model):
     gang = models.CharField(max_length=100)
     relationship = models.TextField(max_length=200)
     appearance = models.TextField(max_length=200, blank=True)
-    image = models.ImageField(upload_to='../media/family_members/',
-                              default='media/family_members/Not_Found.jpg')
+    image = models.ImageField(upload_to='family_members/',
+                              default='family_members/Not_Found.jpg')

@@ -13,7 +13,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='familymodel',
             name='image',
-            field=models.ImageField(default='templates/family_tree/assets/family_members/default.jpg', upload_to='templates/family_tree/assets/family_members/'),
+            field=models.ImageField(default='templates/family_tree/assets/family_members/Not_Found.jpg', upload_to='templates/family_tree/assets/family_members/'),
         ),
         migrations.AlterField(
             model_name='familymodel',

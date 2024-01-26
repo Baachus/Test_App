@@ -24,11 +24,13 @@ py manage.py populate_familymodel
 
 ## Usage
 
+This project is a test project to verify testing platforms.
 
 
 ## Tests
 
-## License
+Tests located in scooby_doo_test are pytest and playwright.
+Tests located in scooby_doo_test_ts are typescript and playwright.
 
 ## Contact
 Email - bc.robert@gmail.com

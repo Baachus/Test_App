@@ -1,7 +1,7 @@
 {% extends 'family_tree/pages/layout.html' %}
 {% block content %}
     <div class="input-container">
-        <form method="POST" action="{% url 'family_tree:add_member' %}">
+        <form method="POST" action="{% url 'family_tree:add_member' %}"  enctype="multipart/form-data">
             {% csrf_token %}
             {{ form }}
             <button id="addMember" class="btn btn-primary">Add Family Member</button>

@@ -97,20 +97,11 @@ def index(request):
 # Add member view
 @login_required(login_url='family_tree:login')
 def add_member(request):
-    '''
-    This function is used to add a member to the family tree.
-    It handles both the GET and POST requests for the add member page.
-    '''
     if request.method == "POST":
-        form = FamilyForm(request.POST)
+        form = FamilyForm(request.POST, request.FILES)
         if form.is_valid():
-            member = FamilyModel(
-                user = request.user,
-                name = request.POST.get('name'),
-                relationship = request.POST.get('relationship'),
-                gang = request.POST.get('gang'),
-                appearance = request.POST.get('appearance'),
-            )
+            member = form.save(commit=False)
+            member.user = request.user
             member.save()
             return HttpResponseRedirect(reverse('family_tree:index'))
         else:
@@ -171,12 +162,13 @@ def edit_member(request, member_id):
         member = FamilyModel.objects.get(id=member_id)
         #pylint: enable=no-member
         if request.method == "POST":
-            family_form = FamilyForm(request.POST)
+            family_form = FamilyForm(request.POST, request.FILES)
             if family_form.is_valid():
                 member.name = request.POST.get('name')
                 member.relationship = request.POST.get('relationship')
                 member.gang = request.POST.get('gang')
                 member.appearance = request.POST.get('appearance')
+                member.image = 'family_members/'+request.POST.get('image')
                 member.save()
                 return HttpResponseRedirect(reverse('family_tree:index'))
             else:
