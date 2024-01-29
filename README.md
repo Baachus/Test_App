@@ -28,12 +28,12 @@ This project is a test project to verify testing platforms.
 
 # Management Commands
 
-Users are able to populate the family model running the following:
+Users are able to populate the family model running the following within the scooby_doo app:
 ```bash
 py manage.py populate_familymodel
 ```
 
-Users are able to clean up media content by running the following (this will remove all unused images that are not populated in the database along with the Not_Found image):
+Users are able to clean up media content by running the following within the scooby_doo app (this will remove all unused images that are not populated in the database along with the Not_Found image):
 ```bash
 py manage.py cleanup_media
 ```
