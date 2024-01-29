@@ -26,10 +26,22 @@ py manage.py populate_familymodel
 
 This project is a test project to verify testing platforms.
 
+# Management Commands
+
+Users are able to populate the family model running the following:
+```bash
+py manage.py populate_familymodel
+```
+
+Users are able to clean up media content by running the following (this will remove all unused images that are not populated in the database along with the Not_Found image):
+```bash
+py manage.py cleanup_media
+```
 
 ## Tests
 
 Tests located in scooby_doo_test are pytest and playwright.
+
 Tests located in scooby_doo_test_ts are typescript and playwright.
 
 ## Contact
