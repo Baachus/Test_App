@@ -2,7 +2,7 @@
 
 ## Description
 
-This project is a Django/Python website built for testing purposes.  It currently shows the relationships of characters to Scooby-Doo and the Gang.  It also has a project builtin for utilizing PyTest with Playwright.
+This project is a Django/Python website built for testing purposes.  It currently shows the relationships of characters to Scooby-Doo and the Gang.  It also has test projects built for utilizing PyTest with Playwright and Typescript with Playwright.
 
 ## Installation
 

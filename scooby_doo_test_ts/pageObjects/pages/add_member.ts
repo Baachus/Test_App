@@ -50,7 +50,7 @@ class AddMemberPage {
 
         // Enter data into form
         await this.page.fill(this.name_txt, newUser.name);
-        await this.page.fill(this.gang_txt, newUser.gang);
+        await this.page.selectOption(this.gang_txt, newUser.gang);
         await this.page.fill(this.relationship_txt, newUser.relationship);
         await this.page.fill(this.appearance_txt, newUser.appearance);
         

@@ -3,4 +3,5 @@
 .auth
 .pytest_cache
 __pycache__
+scooby_doo/media/family_members/Happy_Duck*
 ```

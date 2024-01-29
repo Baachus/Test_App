@@ -51,7 +51,7 @@ class EditMemberPage {
 
         // Enter data into form
         await this.page.getByTestId(this.name_txt).fill(updatedUser.name);
-        await this.page.getByTestId(this.gang_txt).fill( updatedUser.gang);
+        await this.page.getByTestId(this.gang_txt).selectOption( updatedUser.gang);
         await this.page.getByTestId(this.relationship_txt).fill(updatedUser.relationship);
         await this.page.getByTestId(this.appearance_txt).fill(updatedUser.appearance);
         
