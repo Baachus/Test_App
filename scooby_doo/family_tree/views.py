@@ -97,6 +97,7 @@ def index(request):
 # Add member view
 @login_required(login_url='family_tree:login')
 def add_member(request):
+    ''' This function is used to add a member to the family tree.'''
     if request.method == "POST":
         form = FamilyForm(request.POST, request.FILES)
         if form.is_valid():
@@ -181,3 +182,12 @@ def edit_member(request, member_id):
     except FamilyModel.DoesNotExist:
     #pylint: enable=no-member
         return HttpResponse('Invalid ID', status=400)
+
+@login_required(login_url='family_tree:login')
+def view_gang_tree(request):
+    '''
+    This function is used to render the html file for the family tree app.
+    It fetches all family members and renders them on the index page.
+    '''
+    ctx = {"user": request.user}
+    return render(request, "family_tree/pages/view_gang_tree.html", ctx)
