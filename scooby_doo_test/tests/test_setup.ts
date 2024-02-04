@@ -8,6 +8,7 @@ import { AddMemberPage } from '../pageObjects/pages/add_member';
 import { RemoveMemberPage } from '../pageObjects/pages/remove_member';
 import { ViewMemberPage } from '../pageObjects/pages/view_member';
 import { EditMemberPage } from '../pageObjects/pages/edit_member';
+import { FamilyTreePage } from '../pageObjects/pages/family_tree';
 
 // Import components
 import { HeaderComp } from '../pageObjects/components/header';
@@ -22,6 +23,7 @@ const test = baseTest.extend<{
     removeMemberPage: RemoveMemberPage,
     viewMemberPage: ViewMemberPage,
     editMemberPage: EditMemberPage,
+    familyTreePage: FamilyTreePage,
 }>({
     factory: async ({ page }, use) => {
         const factory = new PageFactory(page);
@@ -47,6 +49,9 @@ const test = baseTest.extend<{
     },
     editMemberPage: async ({ factory }, use) => {
         await use(factory.getEditMemberPage());
+    },
+    familyTreePage: async ({ factory }, use) => {
+        await use(factory.getFamilyTreePage());
     },
 });
 

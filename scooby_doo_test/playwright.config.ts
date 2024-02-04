@@ -9,7 +9,7 @@ import { defineConfig, devices } from '@playwright/test';
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
-declare var process : {
+declare let process : {
   env: {
     CI: string,
   }

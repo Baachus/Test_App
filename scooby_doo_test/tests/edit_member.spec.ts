@@ -43,7 +43,7 @@ test('Edit family member and verify successful data changes', async ({
     });
 
     // View Family Member
-    let new_member_id = await indexPage.getIndex(newUser.name);
+    const new_member_id = await indexPage.getIndex(newUser.name);
     await indexPage.edit_family_member(new_member_id);
 
     // Edit family member data

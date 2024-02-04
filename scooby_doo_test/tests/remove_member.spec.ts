@@ -34,7 +34,7 @@ test('Remove family member and verify successful removal', async ({
     });
 
     // Remove user from gang
-    let new_member_id = await indexPage.getIndex(newUser.name);
+    const new_member_id = await indexPage.getIndex(newUser.name);
     await headerComp.click_remove_family_member();
     await removeMemberPage.remove_family_member(new_member_id);
 

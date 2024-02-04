@@ -39,7 +39,6 @@ class EditMemberPage {
         gang_to_update = gang_to_update || data.randomGang();
         relationship_to_update = relationship_to_update || data.randomRelationship();
         appearance_to_update = appearance_to_update || '{"TV":[{}],"Movie":[{}],"APPEARED":false}';
-        image_to_update = image_to_update;
 
         const updatedUser = {
             name: name_to_update,
@@ -56,7 +55,7 @@ class EditMemberPage {
         await this.page.getByTestId(this.appearance_txt).fill(updatedUser.appearance);
         
         // Add image
-        const file_input = await this.page.locator(this.image_input);
+        const file_input = this.page.locator(this.image_input);
         if(updatedUser.image)
             await file_input.setInputFiles(updatedUser.image);
         

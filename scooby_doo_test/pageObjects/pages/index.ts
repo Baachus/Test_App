@@ -12,9 +12,7 @@ class IndexPage {
 
     // Methods
     async getIndex(name: string): Promise<string> {
-        // Get the element handle of the member in the family tree
-        const elementHandle = await this.page.$(`text=${name}`);
-        const testId = await elementHandle?.getAttribute("data-testid");
+        const testId = await this.page.getAttribute(`text=${name}`, "data-testid");
         const index = testId?.split("_")[1];
         if (index === undefined) {
             throw new Error("Index not found");

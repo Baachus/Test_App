@@ -1,7 +1,7 @@
 import { Page } from "@playwright/test";
 
 // Import the JSON file
-const auth = require('..//..//.auth//scooby_doo_familyTree.json');
+import auth from '..//..//.auth//scooby_doo_familyTree.json';
 
 class LoginPage {
     private page: Page;

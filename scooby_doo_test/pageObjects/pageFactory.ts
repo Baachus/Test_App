@@ -6,6 +6,7 @@ import { AddMemberPage } from '../pageObjects/pages/add_member';
 import { RemoveMemberPage } from '../pageObjects/pages/remove_member';
 import { ViewMemberPage } from '../pageObjects/pages/view_member';
 import { EditMemberPage } from '../pageObjects/pages/edit_member';
+import { FamilyTreePage } from '../pageObjects/pages/family_tree';
 
 class PageFactory {
     private indexPage?: IndexPage;
@@ -15,6 +16,7 @@ class PageFactory {
     private removeMemberPage?: RemoveMemberPage;
     private viewMemberPage?: ViewMemberPage;
     private editMemberPage?: EditMemberPage;
+    private familyTreePage?: FamilyTreePage;
 
     constructor(private page: Page) {}
 
@@ -65,6 +67,13 @@ class PageFactory {
             this.editMemberPage = new EditMemberPage(this.page);
         }
         return this.editMemberPage;
+    }
+
+    getFamilyTreePage(): FamilyTreePage {
+        if (!this.familyTreePage) {
+            this.familyTreePage = new FamilyTreePage(this.page);
+        }
+        return this.familyTreePage;
     }
 }
 

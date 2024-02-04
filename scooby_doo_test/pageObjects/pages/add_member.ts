@@ -38,7 +38,6 @@ class AddMemberPage {
         gang_to_add = gang_to_add || data.randomGang();
         relationship_to_add = relationship_to_add || data.randomRelationship();
         appearance_to_add = appearance_to_add || '{"TV":[{}],"Movie":[{}],"APPEARED":false}';
-        image_to_add = image_to_add;
 
         const newUser = {
             name: name_to_add,
@@ -55,7 +54,7 @@ class AddMemberPage {
         await this.page.fill(this.appearance_txt, newUser.appearance);
         
         // Add image
-        const file_input = await this.page.locator(this.image_input);
+        const file_input = this.page.locator(this.image_input);
         if(newUser.image)
             await file_input.setInputFiles(newUser.image);
         

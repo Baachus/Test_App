@@ -32,7 +32,7 @@ test('Create new family member and verify successful creation', async ({
     });    
 
     // Verify user is created successfully
-    let new_member_id = await indexPage.getIndex(newUser.name);
+    const new_member_id = await indexPage.getIndex(newUser.name);
     await expect(page.getByTestId(`name_${new_member_id}`)).toHaveText(newUser.name);
     await expect(page.getByTestId(`gang_${new_member_id}`)).toHaveText(newUser.gang);
     await expect(page.getByTestId(`relationship_${new_member_id}`)).toHaveText(newUser.relationship);
@@ -78,7 +78,7 @@ test('Default new family member image is displayed', async ({
     });
 
     // Click View Family Member
-    let new_member_id = await indexPage.getIndex(newUser.name);
+    const new_member_id = await indexPage.getIndex(newUser.name);
     await page.getByTestId(`view_button_${new_member_id}`).click();
 
     // Verify default image is displayed
@@ -128,7 +128,7 @@ test('Uploaded family member image is displayed', async ({
     });
 
     // Click View Family Member
-    let new_member_id = await indexPage.getIndex(newUser.name);
+    const new_member_id = await indexPage.getIndex(newUser.name);
     await page.getByTestId(`view_button_${new_member_id}`).click();
 
     // Verify default image is displayed

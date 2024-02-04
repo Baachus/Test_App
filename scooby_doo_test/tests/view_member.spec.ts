@@ -35,7 +35,7 @@ test('View new family member and verify successful data', async ({
     });
 
     // View Family Member
-    let new_member_id = await indexPage.getIndex(newUser.name);
+    const new_member_id = await indexPage.getIndex(newUser.name);
     await indexPage.view_family_member(new_member_id);
 
     // Verify user is created successfully

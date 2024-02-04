@@ -16,7 +16,7 @@ class ViewMemberPage {
 
     // Methods
     async get_name(): Promise<Locator> {
-        return await this.page.getByTestId(this.name_txt);
+        return this.page.getByTestId(this.name_txt);
     }
 
     async get_name_text(): Promise<string> {
@@ -25,7 +25,7 @@ class ViewMemberPage {
     }
 
     async get_gang(): Promise<Locator> {
-        return await this.page.getByTestId(this.gang_txt);
+        return this.page.getByTestId(this.gang_txt);
     }
 
     async get_gang_text(): Promise<string> {
@@ -34,7 +34,7 @@ class ViewMemberPage {
     }
 
     async get_relationship(): Promise<Locator> {
-        return await this.page.getByTestId(this.relationship_txt);
+        return this.page.getByTestId(this.relationship_txt);
     }
 
     async get_relationship_text(): Promise<string> {
@@ -43,7 +43,7 @@ class ViewMemberPage {
     }
 
     async get_appearance(): Promise<Locator> {
-        return await this.page.getByTestId(this.appearance_txt);
+        return this.page.getByTestId(this.appearance_txt);
     }
 
     async get_appearance_text(): Promise<string> {
@@ -52,7 +52,7 @@ class ViewMemberPage {
     }
     
     async get_image(): Promise<Locator> {
-        return await this.page.getByTestId(this.image);
+        return this.page.getByTestId(this.image);
     }
 }
 

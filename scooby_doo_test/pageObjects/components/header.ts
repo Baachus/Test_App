@@ -6,11 +6,13 @@ class HeaderComp {
     constructor(page: Page) {
         this.page = page;
     }
+    
     // Selectors
     logout_lnk = 'a:has-text("Logout")';
     home_lnk = 'a:has-text("home")';
     remove_family_member_lnk = 'a:has-text("Remove Family Member")';
     add_family_member_lnk = 'a:has-text("Add Family Member")';
+    family_tree_lnk = 'a:has-text("View Family Tree")';
 
     // Methods
     async logout(): Promise<void> {
@@ -27,6 +29,10 @@ class HeaderComp {
 
     async click_add_family_member(): Promise<void> {
         await this.page.click(this.add_family_member_lnk);
+    }
+    
+    async click_family_tree(): Promise<void> {
+        await this.page.click(this.family_tree_lnk);
     }
 }
 
