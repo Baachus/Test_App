@@ -44,5 +44,10 @@ Tests located in scooby_doo_test are pytest and playwright.
 
 Tests located in scooby_doo_test_ts are typescript and playwright.
 
+To verify linting for TS please run 
+```bash
+npx eslint .
+```
+
 ## Contact
 Email - bc.robert@gmail.com

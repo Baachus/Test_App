@@ -4,6 +4,7 @@ import os
 from django.core.management.base import BaseCommand
 from django.conf import settings
 from family_tree.models import FamilyModel
+from termcolor import colored
 
 class Command(BaseCommand):
     ''' Deletes unused media files from the media directory. '''
@@ -12,7 +13,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         media_root = settings.MEDIA_ROOT
 
-        # Walk through all subfolders and files in media_root
+        # Walk through all sub-folders and files in media_root
         for dirpath, dirnames, filenames in os.walk(media_root):
             for filename in filenames:
                 # Construct the absolute file path
@@ -24,11 +25,11 @@ class Command(BaseCommand):
                 if not FamilyModel.objects.filter(image=relative_file_path).exists():
                     if 'Not_Found' not in file_path:
                         os.remove(file_path)
-                        self.stdout.write(self.style.SUCCESS(f'Deleted file {relative_file_path}'))
+                        print(colored(f'Deleted file {relative_file_path}', 'green'))
 
             # Optional: Remove empty directories
             for dirname in dirnames:
                 dir_path = os.path.join(dirpath, dirname)
                 if not os.listdir(dir_path):  # Check if directory is empty
                     os.rmdir(dir_path)
-                    self.stdout.write(self.style.SUCCESS(f'Deleted directory {dir_path}'))
+                    print(colored(f'Deleted file {relative_file_path}', 'green'))

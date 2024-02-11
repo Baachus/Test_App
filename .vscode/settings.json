@@ -20,10 +20,31 @@
     },
     "peacock.color": "#13321c",
     "cSpell.words": [
+        "ajaxdata",
         "autouse",
+        "classattr",
+        "clientdelay",
+        "clientsidedelay",
         "Dinkley",
+        "dynamicid",
+        "dynamictable",
+        "hiddenlayers",
+        "Inflectra",
+        "loaddelay",
+        "nonbreaking",
+        "nonbreakingspace",
+        "overlappedelement",
+        "progressbar",
+        "Rapise",
+        "rubiks",
+        "sampleapp",
         "Scooby",
-        "Shaggy"
+        "Scrollbars",
+        "shadowdom",
+        "Shaggy",
+        "textinput",
+        "UITAP",
+        "verifytext"
     ],
     "python.testing.pytestArgs": [
         "scooby_doo_test"
