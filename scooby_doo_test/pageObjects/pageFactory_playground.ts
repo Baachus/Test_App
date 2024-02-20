@@ -13,6 +13,15 @@ import { OverlappedElementPage } from '../pageObjects/pages/ui_playground/overla
 import { VisibilityPage } from './pages/ui_playground/visibility';
 import { ClassAttributePage } from './pages/ui_playground/class_attribute';
 import { ClientSideDelayPage } from './pages/ui_playground/client_side_delay';
+import { ShadowDOMPage } from './pages/ui_playground/shadow_dom';
+import { HiddenLayersPage } from './pages/ui_playground/hidden_layers';
+import { ClickPage } from './pages/ui_playground/click';
+import { LoadDelayPage } from './pages/ui_playground/load_delay';
+import { MouseOverPage } from './pages/ui_playground/mouse_over';
+import { TextInputPage } from './pages/ui_playground/text_input';
+import { VerifyTextPage } from './pages/ui_playground/verify_text';
+import { NonBreakingPage } from './pages/ui_playground/non_breaking_space';
+import { ProgressBarPage } from './pages/ui_playground/progress_bar';
 
 class PageFactory {
     // Components
@@ -28,6 +37,15 @@ class PageFactory {
     private visibilityPage?: VisibilityPage;
     private classAttributePage?: ClassAttributePage;
     private clientSideDelayPage?: ClientSideDelayPage;
+    private shadowDOMPage?: ShadowDOMPage;
+    private hiddenLayersPage?: HiddenLayersPage;
+    private clickPage?: ClickPage;
+    private loadDelayPage?: LoadDelayPage;
+    private mouseOverPage?: MouseOverPage;
+    private textInputPage?: TextInputPage;
+    private verifyTextPage?: VerifyTextPage;
+    private nonBreakingPage?: NonBreakingPage;
+    private progressBarPage?: ProgressBarPage;
 
     constructor(private page: Page) {}
 
@@ -99,6 +117,69 @@ class PageFactory {
             this.clientSideDelayPage = new ClientSideDelayPage(this.page);
         }
         return this.clientSideDelayPage;
+    }
+    
+    getShadowDOMPage(): ShadowDOMPage {
+        if (!this.shadowDOMPage) {
+            this.shadowDOMPage = new ShadowDOMPage(this.page);
+        }
+        return this.shadowDOMPage;
+    }
+
+    getHiddenLayersPage(): HiddenLayersPage {
+        if (!this.hiddenLayersPage) {
+            this.hiddenLayersPage = new HiddenLayersPage(this.page);
+        }
+        return this.hiddenLayersPage;
+    }
+
+    getClickPage(): ClickPage {
+        if (!this.clickPage) {
+            this.clickPage = new ClickPage(this.page);
+        }
+        return this.clickPage;
+    }
+
+    getLoadDelayPage(): LoadDelayPage {
+        if (!this.loadDelayPage) {
+            this.loadDelayPage = new LoadDelayPage(this.page);
+        }
+        return this.loadDelayPage;
+    }
+
+    getMouseOverPage(): MouseOverPage {
+        if (!this.mouseOverPage) {
+            this.mouseOverPage = new MouseOverPage(this.page);
+        }
+        return this.mouseOverPage;
+    }
+
+    getTextInputPage(): TextInputPage {
+        if (!this.textInputPage) {
+            this.textInputPage = new TextInputPage(this.page);
+        }
+        return this.textInputPage;
+    }
+
+    getVerifyTextPage(): VerifyTextPage {
+        if (!this.verifyTextPage) {
+            this.verifyTextPage = new VerifyTextPage(this.page);
+        }
+        return this.verifyTextPage;
+    }
+
+    getNonBreakingPage(): NonBreakingPage {
+        if (!this.nonBreakingPage) {
+            this.nonBreakingPage = new NonBreakingPage(this.page);
+        }
+        return this.nonBreakingPage;
+    }
+
+    getProgressBarPage(): ProgressBarPage {
+        if (!this.progressBarPage) {
+            this.progressBarPage = new ProgressBarPage(this.page);
+        }
+        return this.progressBarPage;
     }
 }
 
