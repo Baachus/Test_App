@@ -1,17 +1,18 @@
 import { test as baseTest } from '@playwright/test';
-import { PageFactory } from '../pageObjects/pageFactory';
+import { PageFactory } from '../../pageObjects/pageFactory';
+import AxeBuilder from '@axe-core/playwright';
 
 // Import pages
-import { IndexPage } from '../pageObjects/pages/index';
-import { LoginPage } from '../pageObjects/pages/login';
-import { AddMemberPage } from '../pageObjects/pages/add_member';
-import { RemoveMemberPage } from '../pageObjects/pages/remove_member';
-import { ViewMemberPage } from '../pageObjects/pages/view_member';
-import { EditMemberPage } from '../pageObjects/pages/edit_member';
-import { FamilyTreePage } from '../pageObjects/pages/family_tree';
+import { IndexPage } from '../../pageObjects/pages/index';
+import { LoginPage } from '../../pageObjects/pages/login';
+import { AddMemberPage } from '../../pageObjects/pages/add_member';
+import { RemoveMemberPage } from '../../pageObjects/pages/remove_member';
+import { ViewMemberPage } from '../../pageObjects/pages/view_member';
+import { EditMemberPage } from '../../pageObjects/pages/edit_member';
+import { FamilyTreePage } from '../../pageObjects/pages/family_tree';
 
 // Import components
-import { HeaderComp } from '../pageObjects/components/header';
+import { HeaderComp } from '../../pageObjects/components/header';
 
 // Extend the base test to include page objects
 const test = baseTest.extend<{
@@ -24,6 +25,7 @@ const test = baseTest.extend<{
     viewMemberPage: ViewMemberPage,
     editMemberPage: EditMemberPage,
     familyTreePage: FamilyTreePage,
+    accessibilityBuilder: AxeBuilder,
 }>({
     factory: async ({ page }, use) => {
         const factory = new PageFactory(page);
@@ -53,6 +55,14 @@ const test = baseTest.extend<{
     familyTreePage: async ({ factory }, use) => {
         await use(factory.getFamilyTreePage());
     },
+
+    // Accessibility builder
+    accessibilityBuilder: async ({ page }, use)=>{
+        const accessibilityBuilder = await new AxeBuilder({ page })
+        .withTags(['wcag2a', 'wcag2aa', 'wcag21a', "wcag21aa", "best-practice", "ACT", "section508"]);
+        
+        await use(accessibilityBuilder);
+    }
 });
 
 export default test;

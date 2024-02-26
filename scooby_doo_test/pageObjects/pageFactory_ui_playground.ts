@@ -1,15 +1,15 @@
 import { Page } from '@playwright/test';
 
 // Components
-import { HeaderComp } from '../pageObjects/components/ui_playground/header';
-import { FooterComp } from '../pageObjects/components/ui_playground/footer';
+import { HeaderComp } from './components/ui_playground/header';
+import { FooterComp } from './components/ui_playground/footer';
 
 // Pages
-import { HomePage } from '../pageObjects/pages/ui_playground/home'; 
-import { DynamicIDPage } from '../pageObjects/pages/ui_playground/dynamic_id';
-import { AJAXDataPage } from '../pageObjects/pages/ui_playground/ajax_data';
-import { ScrollbarsPage } from '../pageObjects/pages/ui_playground/scrollbars';
-import { OverlappedElementPage } from '../pageObjects/pages/ui_playground/overlapped_element';
+import { HomePage } from './pages/ui_playground/home'; 
+import { DynamicIDPage } from './pages/ui_playground/dynamic_id';
+import { AJAXDataPage } from './pages/ui_playground/ajax_data';
+import { ScrollbarsPage } from './pages/ui_playground/scrollbars';
+import { OverlappedElementPage } from './pages/ui_playground/overlapped_element';
 import { VisibilityPage } from './pages/ui_playground/visibility';
 import { ClassAttributePage } from './pages/ui_playground/class_attribute';
 import { ClientSideDelayPage } from './pages/ui_playground/client_side_delay';

@@ -1,5 +1,6 @@
 import { test as baseTest } from '@playwright/test';
-import { PageFactory } from '../../pageObjects/pageFactory_playground';
+import { PageFactory } from '../../pageObjects/pageFactory_ui_playground';
+import AxeBuilder from '@axe-core/playwright';
 
 // Import pages
 import { HomePage } from '../../pageObjects/pages/ui_playground/home';
@@ -46,6 +47,7 @@ const test = baseTest.extend<{
     verifyTextPage: VerifyTextPage
     nonBreakingPage: NonBreakingPage
     progressBarPage: ProgressBarPage
+    accessibilityBuilder: AxeBuilder
 }>({
     factory: async ({ page }, use) => {
         const factory = new PageFactory(page);
@@ -107,6 +109,14 @@ const test = baseTest.extend<{
     },
     progressBarPage: async ({ factory }, use) => {
         await use(factory.getProgressBarPage());
+    },
+
+    // Accessibility builder
+    accessibilityBuilder: async ({ page }, use)=>{
+        const accessibilityBuilder = await new AxeBuilder({ page })
+        .withTags(['wcag2a', 'wcag2aa', 'wcag21a', "wcag21aa", "best-practice", "ACT", "section508"]);
+        
+        await use(accessibilityBuilder);
     }
 });
 

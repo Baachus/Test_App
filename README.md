@@ -40,7 +40,7 @@ py manage.py cleanup_media
 
 ## Tests
 
-Tests located in scooby_doo_test are pytest and playwright.
+Tests located in .reference/scooby_doo_test are pytest and playwright.
 
 Tests located in scooby_doo_test_ts are typescript and playwright.
 
@@ -48,6 +48,19 @@ To verify linting for TS please run
 ```bash
 npx eslint .
 ```
+
+## Performance Testing
+
+Performance tests are located in scooby_doo_test located under the artillery folder.
+
+They are setup to run utilizing Artillery for performance testing purposes.  To run these commands 
+you will need to follow these steps:
+```bash
+artillery run artillery.yml --output test-results/performance-test-run-report.json
+artillery report test-results/performance-test-run-report.json
+```
+
+This will generate a performance report of all tests setup in the yml file and create an html report in the test-results folder.
 
 ## Contact
 Email - bc.robert@gmail.com

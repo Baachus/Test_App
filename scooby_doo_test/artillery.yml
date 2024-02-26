@@ -1,0 +1,11 @@
+config: 
+  target: http://127.0.0.1:8000/family_tree
+  engines: 
+    playwright: {}
+     # launchOptions: 
+       # headless: false
+       # slowMo: 50
+  processor: "./tests/scooby_doo/artillery/login.ts"
+scenarios:
+  - engine: playwright
+    testFunction: "artilleryScript"
