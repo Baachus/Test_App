@@ -1,0 +1,11 @@
+config: 
+  target: http://127.0.0.1:8000/family_tree
+  engines: 
+    playwright: # {} # Optional playwright configuration
+      launchOptions: 
+        headless: false
+        slowMo: 50
+  processor: "performance_test.ts"
+scenarios:
+  - engine: playwright
+    testFunction: "artilleryScript"
