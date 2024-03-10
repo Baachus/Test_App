@@ -1,0 +1,8 @@
+{
+    "compilerOptions": {
+        "target": "ES6",
+        "module": "commonjs",
+        "outDir": "./js-tests",
+        "rootDir": "./scooby_doo_test/tests"
+    }
+}
