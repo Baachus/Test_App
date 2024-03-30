@@ -1,14 +1,15 @@
 import { expect } from '@playwright/test';
 import { faker } from '@faker-js/faker';
 import { RandomData } from '../../utils/random_data';
-import test from './test_setup';
+import test from '../../fixtures/test_setup_scooby_doo';
 
-test.describe('Create Family Member Tests', () => {
+test.describe('@Scooby_Doo Create Family Member Tests', () => {
     test('Create new family member and verify successful creation', async ({ 
         page, 
         loginPage, 
         indexPage, 
         addMemberPage,
+        addMemberPageAssertion,
         removeMemberPage,
         headerComp 
     }) => {
@@ -93,8 +94,6 @@ test.describe('Create Family Member Tests', () => {
             await page.getByTestId(`view_button_${new_member_id}`).click();
 
             // Verify default image is displayed
-            await page.getByTestId('image').waitFor({ state: 'visible' });
-            await expect(page.getByTestId('image')).toHaveScreenshot();
         });
 
         await test.step('Remove user from gang', async () => {

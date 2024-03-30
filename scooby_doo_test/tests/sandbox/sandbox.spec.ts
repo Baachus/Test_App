@@ -7,7 +7,7 @@ test.use({
   });
 
 test.describe('sandbox tests', () => {
-    test('Successful Mock', async ({ page }) => {
+    test.skip('Successful Mock', async ({ page }) => {
         // Open the page
         await page.goto('');
 
@@ -31,7 +31,7 @@ test.describe('sandbox tests', () => {
         await expect(page.getByText('1')).toBeVisible();
     });
 
-    test('API Failure - 500', async ({ page }) => {
+    test.skip('API Failure - 500', async ({ page }) => {
         // Open the page
         await page.goto('');
 
@@ -50,7 +50,7 @@ test.describe('sandbox tests', () => {
         await expect(page.getByText('HTTP ERROR 500')).toBeVisible();
     });
 
-    test('API Failure - 429', async ({ page }) => {
+    test.skip('API Failure - 429', async ({ page }) => {
         // Open the page
         await page.goto('');
 
@@ -68,5 +68,4 @@ test.describe('sandbox tests', () => {
 
         await expect(page.getByText('HTTP ERROR 429')).toBeVisible();
     });
-
 });

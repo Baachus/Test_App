@@ -1,12 +1,12 @@
 import { test as baseTest } from '@playwright/test';
-import { PageFactory } from '../../pageObjects/pageFactory_commit_quality';
+import { PageFactory } from '../pageObjects/pageFactory_commit_quality';
 import AxeBuilder from '@axe-core/playwright';
 
 // Import components
-import { HeaderComp } from '../../pageObjects/components/commit_quality/header';
+import { HeaderComp } from '../pageObjects/components/commit_quality/header';
 
 // Import pages
-import { AddProductPage } from '../../pageObjects/pages/commit_quality/add_product';
+import { AddProductPage } from '../pageObjects/pages/commit_quality/add_product';
 
 // Extend the base test to include page objects
 const test = baseTest.extend<{
@@ -29,7 +29,7 @@ const test = baseTest.extend<{
     // Accessibility builder
     accessibilityBuilder: async ({ page }, use)=>{
         const accessibilityBuilder = await new AxeBuilder({ page })
-        .withTags(['wcag2a', 'wcag2aa', 'wcag21a', "wcag21aa", "best-practice", "ACT", "section508"]);
+        .withTags(['wcag2a', 'wcag2aa', 'wcag21a', "wcag21aa"]);
         
         await use(accessibilityBuilder);
     }

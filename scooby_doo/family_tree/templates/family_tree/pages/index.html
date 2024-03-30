@@ -16,12 +16,12 @@
                         <td data-testid="gang_{{member.id}}">{{ member.gang }}</td>
                         <td>
                             <span>
-                                <a type="button" class="btn btn-outline-secondary" data-testid="view_button_{{member.id}}" href="{% url 'family_tree:view_member' member.id %}">View</a>
+                                <a type="button" class="btn btn-outline-dark" data-testid="view_button_{{member.id}}" href="{% url 'family_tree:view_member' member.id %}">View</a>
                             </span>
                         </td>
                         <td>
                             <span>
-                                <a type="button" class="btn btn-outline-secondary" data-testid="edit_button_{{member.id}}" href="{% url 'family_tree:edit_member' member.id %}">Edit</a>
+                                <a type="button" class="btn btn-outline-dark" data-testid="edit_button_{{member.id}}" href="{% url 'family_tree:edit_member' member.id %}">Edit</a>
                             </span>
                         </td>
                     </tr>

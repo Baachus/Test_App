@@ -1,5 +1,5 @@
 import { expect } from '@playwright/test';
-import test from './test_setup';
+import test from '../../fixtures/test_setup_ui_playground';
 
 test.use({
     baseURL: 'https://www.uitestingplayground.com',
@@ -7,7 +7,7 @@ test.use({
   });
 
 
-test.describe('Header Component Tests for UI Test Automation Playground', () => {
+test.describe('@UI_Playground Header Component Tests for UI Test Automation Playground', () => {
     test('Verify Home Link on Header Sends User to Right Page', async ({ 
         page,
         headerComp

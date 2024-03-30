@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker';
-import { RandomData } from '../../utils/random_data';
+import { RandomData } from '../../../utils/random_data';
 import { Page } from "@playwright/test";
 
 class EditMemberPage {

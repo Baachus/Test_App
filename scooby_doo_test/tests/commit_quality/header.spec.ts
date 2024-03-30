@@ -1,11 +1,11 @@
-import test from './test_setup';
+import test from '../../fixtures/test_setup_commit_quality';
 import { Page, expect } from '@playwright/test';
 
 test.use({
   baseURL: 'https://commitquality.com/',
 });
 
-test.describe('Header Tests', () => {
+test.describe('@Commit_Quality Header Tests', () => {
   test('Navigation should land user on correct page', async ({ 
     page, 
     headerComp

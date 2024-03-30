@@ -1,9 +1,9 @@
 import { expect } from '@playwright/test';
 import { faker } from '@faker-js/faker';
 import { RandomData } from '../../utils/random_data';
-import test from './test_setup';
+import test from '../../fixtures/test_setup_scooby_doo';
 
-test('Edit family member and verify successful data changes', async ({ 
+test('@Scooby_Doo Edit family member and verify successful data changes', async ({ 
     page, 
     indexPage, 
     loginPage, 

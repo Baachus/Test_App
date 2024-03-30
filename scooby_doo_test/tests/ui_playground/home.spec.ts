@@ -1,5 +1,5 @@
 import { expect } from '@playwright/test';
-import test from './test_setup';
+import test from '../../fixtures/test_setup_ui_playground';
 
 // Links on home page for use
 const links = [
@@ -29,7 +29,7 @@ test.use({
   });
 
 
-test.describe('Home Page Tests for UI Test Automation Playground', () => {
+test.describe('@UI_Playground Home Page Tests for UI Test Automation Playground', () => {
     test('Verify Title on Home Page', async ({ 
         page,
         homePage,

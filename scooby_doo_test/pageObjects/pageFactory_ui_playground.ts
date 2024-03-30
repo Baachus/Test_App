@@ -12,6 +12,7 @@ import { ScrollbarsPage } from './pages/ui_playground/scrollbars';
 import { OverlappedElementPage } from './pages/ui_playground/overlapped_element';
 import { VisibilityPage } from './pages/ui_playground/visibility';
 import { ClassAttributePage } from './pages/ui_playground/class_attribute';
+import { ClassAttributePageAssertions } from './pages/ui_playground/class_attribute_assertions';
 import { ClientSideDelayPage } from './pages/ui_playground/client_side_delay';
 import { ShadowDOMPage } from './pages/ui_playground/shadow_dom';
 import { HiddenLayersPage } from './pages/ui_playground/hidden_layers';
@@ -36,6 +37,7 @@ class PageFactory {
     private overlappedElementPage?: OverlappedElementPage;
     private visibilityPage?: VisibilityPage;
     private classAttributePage?: ClassAttributePage;
+    private classAttributePageAssertions?: ClassAttributePageAssertions;
     private clientSideDelayPage?: ClientSideDelayPage;
     private shadowDOMPage?: ShadowDOMPage;
     private hiddenLayersPage?: HiddenLayersPage;
@@ -110,6 +112,13 @@ class PageFactory {
             this.classAttributePage = new ClassAttributePage(this.page);
         }
         return this.classAttributePage;
+    }
+
+    getClassAttributePageAssertions(): ClassAttributePageAssertions {
+        if (!this.classAttributePageAssertions) {
+            this.classAttributePageAssertions = new ClassAttributePageAssertions(this.page);
+        }
+        return this.classAttributePageAssertions;
     }
 
     getClientSideDelayPage(): ClientSideDelayPage {

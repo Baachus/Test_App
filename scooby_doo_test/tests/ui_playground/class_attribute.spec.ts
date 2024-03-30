@@ -1,17 +1,15 @@
-import { expect } from '@playwright/test';
-import test from './test_setup';
+import test from '../../fixtures/test_setup_ui_playground';
 
 test.use({
     baseURL: 'https://www.uitestingplayground.com',
     ignoreHTTPSErrors: true,
   });
 
-
-test.describe('Class Attribute Tests', () => {
+test.describe('@UI_Playground Class Attribute Tests', () => {
     test('Verify Title, labels, and text', async ({ 
         page,
         homePage,
-        classAttributePage,
+        classAttributePageAssertions
     }) => {
         await test.step('Navigate to the home page', async () => {
             await page.goto('/');
@@ -22,23 +20,23 @@ test.describe('Class Attribute Tests', () => {
         });
 
         await test.step('Verify Labels and Text on Page', async () => {
-            expect(await classAttributePage.get_title_label()).toBe('Class Attribute');
-            expect(await classAttributePage.get_one_class_text()).toBe('Class attribute of an element may contain more than one class reference. E.g. ');
-            expect(await classAttributePage.get_one_class_example_text()).toBe('<button class="btn btn-primary btn-test">');
-            expect(await classAttributePage.get_xpath_text()).toBe('XPath selector relying on a class must be well formed. For example, the following will not work: ');
-            expect(await classAttributePage.get_xpath_example_text()).toBe("//button[@class='btn-primary']");
-            expect(await classAttributePage.get_correct_variant_text()).toBe('Correct variant is');
-            expect(await classAttributePage.get_correct_variant_example_text()).toBe("//button[contains(concat(' ', normalize-space(@class), ' '), ' btn-primary ')]");
+            await classAttributePageAssertions.verify_label('Class Attribute');
+            await classAttributePageAssertions.verify_one_class_text('Class attribute of an element may contain more than one class reference. E.g. ');
+            await classAttributePageAssertions.verify_one_class_example_text('<button class="btn btn-primary btn-test">');
+            await classAttributePageAssertions.verify_xpath_text('XPath selector relying on a class must be well formed. For example, the following will not work: ');
+            await classAttributePageAssertions.verify_xpath_example_text("//button[@class='btn-primary']");
+            await classAttributePageAssertions.verify_correct_variant_text('Correct variant is');
+            await classAttributePageAssertions.verify_correct_variant_example_text("//button[contains(concat(' ', normalize-space(@class), ' '), ' btn-primary ')]");
 
-            expect(await classAttributePage.get_scenario_label()).toBe('Scenario');
-            expect(await classAttributePage.get_scenario_text()).toBe('Record primary (blue) button click and press ok in alert popup.');
-            expect(await classAttributePage.get_scenario_2_text()).toBe('Then execute your test to make sure that it can identify the button using btn-primary class.');
-            expect(await classAttributePage.get_playground_label()).toBe('Playground');
+            await classAttributePageAssertions.verify_scenario_label('Scenario');
+            await classAttributePageAssertions.verify_scenario_text('Record primary (blue) button click and press ok in alert popup.');
+            await classAttributePageAssertions.verify_scenario_2_text('Then execute your test to make sure that it can identify the button using btn-primary class.');
+            await classAttributePageAssertions.verify_playground_label('Playground');
 
             // Verify button text
-            expect(await classAttributePage.get_green_btn()).toContain('Button');   // Using toContain because the button text contains extra whitespace
-            expect(await classAttributePage.get_yellow_btn()).toContain('Button');
-            expect(await classAttributePage.get_blue_btn()).toContain('Button');
+            await classAttributePageAssertions.verify_green_btn('Button');
+            await classAttributePageAssertions.verify_yellow_btn('Button');
+            await classAttributePageAssertions.verify_blue_btn('Button');
         });
     });
 
@@ -46,7 +44,7 @@ test.describe('Class Attribute Tests', () => {
         page,
         browserName,
         homePage,
-        classAttributePage,
+        classAttributePageAssertions
         }) => {
         test.skip(browserName === 'webkit' || browserName === 'firefox', 'This test is skipped in WebKit and Firefox because of a known issue with getComputedStyle.');
 
@@ -60,23 +58,7 @@ test.describe('Class Attribute Tests', () => {
 
         await test.step('Verify Colors on Buttons', async () => {
             // Verify the colors
-            const greenBtn = await classAttributePage.get_green_btn_locator();
-            const yellowBtn = await classAttributePage.get_yellow_btn_locator();
-            const blueBtn = await classAttributePage.get_blue_btn_locator();
-
-            // eslint-disable-next-line playwright/no-conditional-in-test
-            if (greenBtn && yellowBtn && blueBtn) {
-                const greenBtnComputedStyle = await greenBtn.evaluate(node => getComputedStyle(node));
-                const yellowBtnComputedStyle = await yellowBtn.evaluate(node => getComputedStyle(node));
-                const blueBtnComputedStyle = await blueBtn.evaluate(node => getComputedStyle(node));
-
-                expect(greenBtnComputedStyle.backgroundColor).toBe('rgb(40, 167, 69)'); // Green
-                expect(yellowBtnComputedStyle.backgroundColor).toBe('rgb(255, 193, 7)'); // Yellow
-                expect(blueBtnComputedStyle.backgroundColor).toBe('rgb(0, 123, 255)'); // Blue
-            }
-            else{
-                await expect(false).toBe(true);
-            }
+            await classAttributePageAssertions.verify_colors_on_buttons();
         });
     });
 
@@ -85,6 +67,7 @@ test.describe('Class Attribute Tests', () => {
         page,
         homePage,
         classAttributePage,
+        classAttributePageAssertions
         }) => {
         await test.step('Navigate to the home page', async () => {
             await page.goto('/');
@@ -100,8 +83,7 @@ test.describe('Class Attribute Tests', () => {
 
         await test.step('Verify Alert Popup', async () => {
             // Verify the alert popup
-            const alert = page.locator('text=Primary button pressed').isVisible();
-            expect(alert).toBe(true);
+            classAttributePageAssertions.verify_alert_popup_visible();
         });
 
         await test.step('Close the Alert Popup', async () => {
@@ -114,8 +96,7 @@ test.describe('Class Attribute Tests', () => {
 
         await test.step('Verify Alert Popup Does Not Appear', async () => {
             // Verify the alert popup
-            const alert = page.locator('text=Primary button pressed').isVisible();
-            expect(alert).toBe(false);
+            classAttributePageAssertions.verify_alert_popup_visible();
         });
 
         await test.step('Click on the yellow button', async () => {
@@ -124,8 +105,7 @@ test.describe('Class Attribute Tests', () => {
 
         await test.step('Verify Alert Popup', async () => {
             // Verify the alert popup
-            const alert = page.locator('text=Primary button pressed').isVisible();
-            expect(alert).toBe(false);
+            classAttributePageAssertions.verify_alert_popup_visible();
         });
     });
 });

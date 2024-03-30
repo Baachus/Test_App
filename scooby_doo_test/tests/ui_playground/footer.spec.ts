@@ -1,5 +1,5 @@
 import { Page, expect } from '@playwright/test';
-import test from './test_setup';
+import test from '../../fixtures/test_setup_ui_playground';
 
 test.use({
     baseURL: 'https://www.uitestingplayground.com',
@@ -7,7 +7,7 @@ test.use({
   });
 
 
-test.describe('Footer Component Tests for UI Test Automation Playground', () => {
+test.describe('@UI_Playground Footer Component Tests for UI Test Automation Playground', () => {
     test('Verify Star Project Link on Footer Sends User to Right Page', async ({ 
         page,
         footerComp
@@ -59,7 +59,7 @@ test.describe('Footer Component Tests for UI Test Automation Playground', () => 
             await footerComp.click_rapise();
 
             // Expect a title "to be" a string
-            await expect(page).toHaveURL('https://www.inflectra.com/Rapise/');
+            await expect(page).toHaveURL('https://www.inflectra.com/Products/Rapise/');
         });
     });
 

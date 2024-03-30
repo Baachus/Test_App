@@ -1,5 +1,5 @@
 import { expect } from '@playwright/test';
-import test from './test_setup';
+import test from '../../fixtures/test_setup_ui_playground';
 
 test.use({
     baseURL: 'https://www.uitestingplayground.com',
@@ -7,7 +7,7 @@ test.use({
   });
 
 
-test.describe('Scrollbars Data Tests', () => {
+test.describe('@UI_Playground Scrollbars Data Tests', () => {
     test('Verify Title, labels, and text', async ({ 
         page,
         homePage,

@@ -1,4 +1,4 @@
-import test from './test_setup';
+import test from '../../fixtures/test_setup_commit_quality';
 import { faker } from '@faker-js/faker';
 import { expect } from '@playwright/test';
 
@@ -6,7 +6,7 @@ test.use({
   baseURL: 'https://commitquality.com/',
 });
 
-test.describe('Add Product Tests', () => {
+test.describe('@Commit_Quality Add Product Tests', () => {
   test('Adding Product Redirects Back to Product Page', async ({
     page,
     addProductPage
@@ -133,8 +133,11 @@ test.describe('Add Product Tests', () => {
 
   test('Future Date', async ({
     page,
+    browserName,
     addProductPage
     }) => {
+
+      test.skip(browserName === 'webkit', 'This test is skipped in WebKit because of a known issue with future dates being allowed.');
 
       await test.step('Navigate to the commit quality page', async () => {
           await page.goto('add-product');

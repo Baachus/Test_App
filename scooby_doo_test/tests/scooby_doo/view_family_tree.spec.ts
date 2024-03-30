@@ -1,7 +1,7 @@
 import { expect } from '@playwright/test';
-import test from './test_setup';
+import test from '../../fixtures/test_setup_scooby_doo';
 
-test.describe('Scooby-Doo Family Tree Application Tests', () => {
+test.describe('@Scooby_Doo Scooby-Doo Family Tree Application Tests', () => {
     test('Verify Family Tree', async ({ 
         page,
         loginPage,
@@ -21,7 +21,7 @@ test.describe('Scooby-Doo Family Tree Application Tests', () => {
     });
 
 
-    test('Verify Login Page Accessibility', async ({ 
+    test('Verify Family Tree Accessibility', async ({ 
         loginPage, 
         accessibilityBuilder 
     }) => {
@@ -30,7 +30,7 @@ test.describe('Scooby-Doo Family Tree Application Tests', () => {
             await loginPage.family_tree_login();
         });
 
-        await test.step('Verify login page accessibility', async () => {
+        await test.step('Verify family tree table page accessibility', async () => {
             const accessibilityScanResults = await accessibilityBuilder.analyze();
             expect(accessibilityScanResults.violations).toEqual([]);
         });

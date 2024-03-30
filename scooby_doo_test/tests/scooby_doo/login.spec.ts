@@ -1,7 +1,7 @@
 import { expect } from '@playwright/test';
-import test from './test_setup';
+import test from '../../fixtures/test_setup_scooby_doo';
 
-test.describe('Scooby-Doo Family Tree Application Login Tests', () => {
+test.describe('@Scooby_Doo Scooby-Doo Family Tree Application Login Tests', () => {
     test('Login Title Verification', async ({ page }) => {
         await page.goto('/family_tree');
 
