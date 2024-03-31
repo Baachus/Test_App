@@ -4,7 +4,7 @@ import { RandomData } from '../../utils/random_data';
 import test from '../../fixtures/test_setup_scooby_doo';
 
 test.describe('@Scooby_Doo Remove Family Member Tests', () => {
-    test('@Scooby_Doo Remove family member and verify successful removal', async ({ 
+    test('Remove family member and verify successful removal', async ({ 
         page,
         indexPage,
         loginPage,
@@ -61,7 +61,7 @@ test.describe('@Scooby_Doo Remove Family Member Tests', () => {
     });
 
     
-    test('Verify Remove Family Member Accessibility', async ({ 
+    test('@Accessibility Verify Remove Family Member Accessibility', async ({ 
         loginPage, 
         headerComp,
         accessibilityBuilder 

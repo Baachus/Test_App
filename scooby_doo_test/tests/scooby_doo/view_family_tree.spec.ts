@@ -21,7 +21,7 @@ test.describe('@Scooby_Doo Scooby-Doo Family Tree Application Tests', () => {
     });
 
 
-    test('Verify Family Tree Accessibility', async ({ 
+    test('@Accessibility Verify Family Tree Accessibility', async ({ 
         loginPage, 
         accessibilityBuilder 
     }) => {
