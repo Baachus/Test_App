@@ -9,7 +9,6 @@ test.describe('@Scooby_Doo Create Family Member Tests', () => {
         loginPage, 
         indexPage, 
         addMemberPage,
-        addMemberPageAssertion,
         removeMemberPage,
         headerComp 
     }) => {
@@ -159,5 +158,28 @@ test.describe('@Scooby_Doo Create Family Member Tests', () => {
             await headerComp.logout();
             await expect(page.getByTestId("login")).toBeVisible();
         });
+    });
+
+    test('@Accessibility Verify Add Family Member Accessibility', async ({
+        page,
+        loginPage,
+        headerComp,
+        accessibilityBuilder
+        }) => {
+            await test.step('Log into the family tree application', async () => {
+                await loginPage.family_tree_login();
+            });
+
+            await test.step('Verify add family tree member page accessibility', async () => {
+                await headerComp.click_add_family_member();
+                const accessibilityScanResults = await accessibilityBuilder.analyze();
+                expect(accessibilityScanResults.violations).toEqual([]);
+            });
+    
+            await test.step('Log out', async () => {
+                await headerComp.logout();
+                await expect(page.getByTestId("login")).toBeVisible();
+            });
+
     });
 });
