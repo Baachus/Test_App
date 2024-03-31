@@ -12,16 +12,18 @@ test.describe('@Scooby_Doo Create Family Member Tests', () => {
         removeMemberPage,
         headerComp 
     }) => {
-        const data = new RandomData();
-
-        const newUser = {
-            name: faker.person.fullName(),
-            gang: data.randomGang(),
-            relationship: data.randomRelationship(),
-            appearance: '{"TV":[{}],"Movie":[{}],"APPEARED":false}'
-        }
-
+        let newUser;
         let new_member_id = '';     // Member ID of newly created family member
+
+        await test.step('Setup test data', async () => {
+            const data = new RandomData();
+            newUser = {
+                name: faker.person.fullName(),
+                gang: data.randomGang(),
+                relationship: data.randomRelationship(),
+                appearance: '{"TV":[{}],"Movie":[{}],"APPEARED":false}'
+            }
+        });
 
         await test.step('Log into the family tree application', async () => {
             await loginPage.family_tree_login();
@@ -63,14 +65,18 @@ test.describe('@Scooby_Doo Create Family Member Tests', () => {
         removeMemberPage,
         headerComp 
     }) => {
-        const data = new RandomData();
-        const newUser = {
-            name: faker.person.fullName(),
-            gang: data.randomGang(),
-            relationship: data.randomRelationship(),
-            appearance: '{"TV":[{}],"Movie":[{}],"APPEARED":false}'
-        }
-        let new_member_id = '';     // Member ID of newly created family member
+        let newUser;
+        let new_member_id = '';
+        
+        await test.step('Setup test data', async () => {
+            const data = new RandomData();
+            newUser = {
+                name: faker.person.fullName(),
+                gang: data.randomGang(),
+                relationship: data.randomRelationship(),
+                appearance: '{"TV":[{}],"Movie":[{}],"APPEARED":false}'
+            }
+        });
 
         await test.step('Log into the family tree application', async () => {
             await loginPage.family_tree_login();
@@ -114,15 +120,19 @@ test.describe('@Scooby_Doo Create Family Member Tests', () => {
         removeMemberPage,
         headerComp 
     }) => {
-        const data = new RandomData();
-        let new_member_id = '';     // Member ID of newly created family member
-        const newUser = {
-            name: faker.person.fullName(),
-            gang: data.randomGang(),
-            relationship: data.randomRelationship(),
-            appearance: '{"TV":[{}],"Movie":[{}],"APPEARED":false}',
-            image: './test_files/images/Happy_Duck.png'
-        }
+        let newUser;
+        let new_member_id = '';
+        
+        await test.step('Setup test data', async () => {
+            const data = new RandomData();
+            newUser = {
+                name: faker.person.fullName(),
+                gang: data.randomGang(),
+                relationship: data.randomRelationship(),
+                appearance: '{"TV":[{}],"Movie":[{}],"APPEARED":false}',
+                image: './test_files/images/Happy_Duck.png'
+            }
+        });
 
         await test.step('Log into the family tree application', async () => {
             await loginPage.family_tree_login();

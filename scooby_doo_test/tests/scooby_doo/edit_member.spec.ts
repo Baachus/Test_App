@@ -87,24 +87,15 @@ test.describe('@Scooby_Doo Edit Family Member Tests', () => {
         loginPage, 
         addMemberPage,
         removeMemberPage,
-        editMemberPage,
         headerComp,
         accessibilityBuilder
     }) => {
         let newUser;
-        let updatedUser;
         let new_member_id;
 
         await test.step('Setup test data', async () => {
             const data = new RandomData();
             newUser = {
-                name: faker.person.fullName(),
-                gang: data.randomGang(),
-                relationship: data.randomRelationship(),
-                appearance: '{"TV":[{}],"Movie":[{}],"APPEARED":false}'
-            }
-
-            updatedUser = {
                 name: faker.person.fullName(),
                 gang: data.randomGang(),
                 relationship: data.randomRelationship(),
