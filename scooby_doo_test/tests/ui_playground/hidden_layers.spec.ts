@@ -7,7 +7,11 @@ test.use({
   });
 
 
-test.describe('@UI_Playground Hidden Layers Tests', () => {
+test.describe('Hidden Layers Tests', 
+    {
+        tag:['@UI_Playground']
+    },
+    () => {
     test('Verify Title, Labels, and Text', async ({ 
         page,
         homePage,

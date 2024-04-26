@@ -3,7 +3,11 @@ import { faker } from '@faker-js/faker';
 import { RandomData } from '../../utils/random_data';
 import test from '../../fixtures/test_setup_scooby_doo';
 
-test.describe('@Scooby_Doo Edit Family Member Tests', () => {
+test.describe('Edit Family Member Tests', 
+    {
+        tag:['@Scooby-Doo']
+    },
+    () => {
     test('Edit family member and verify successful data changes', async ({ 
         page, 
         indexPage, 
@@ -81,7 +85,11 @@ test.describe('@Scooby_Doo Edit Family Member Tests', () => {
         });
     });
 
-    test('@Accessibility Verify Edit Family Member Accessibility', async ({ 
+    test('Verify Edit Family Member Accessibility', 
+    {
+        tag:['@Accessibility']
+    },
+    async ({ 
         page, 
         indexPage, 
         loginPage, 

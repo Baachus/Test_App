@@ -7,7 +7,11 @@ test.use({
   });
 
 
-  test.describe('@UI_Playground Text Input Tests', () => {
+  test.describe('Text Input Tests', 
+    {
+        tag:['@UI_Playground']
+    },
+    () => {
     test('Verify Title, Labels, and Text', async ({ 
         page,
         homePage,

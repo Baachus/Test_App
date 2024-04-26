@@ -7,7 +7,11 @@ test.use({
   });
 
 
-test.describe('@UI_Playground Verify Text Tests', () => {
+test.describe('Verify Text Tests',
+    {
+        tag:['@UI_Playground']
+    },
+    () => {
     test('Verify Title, Labels, and Text', async ({ 
         page,
         homePage,

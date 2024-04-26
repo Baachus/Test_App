@@ -1,7 +1,11 @@
 import { expect } from '@playwright/test';
 import test from '../../fixtures/test_setup_scooby_doo';
 
-test.describe('@Scooby_Doo Scooby-Doo Family Tree Application Login Tests', () => {
+test.describe('Scooby-Doo Family Tree Application Login Tests', 
+    {
+        tag:['@Scooby-Doo']
+    },
+    () => {
     test('Login Title Verification', async ({ page }) => {
         await page.goto('/family_tree');
 
@@ -36,7 +40,11 @@ test.describe('@Scooby_Doo Scooby-Doo Family Tree Application Login Tests', () =
         await expect(page.getByText("Invalid Login Credentials")).toBeVisible();
     });
 
-    test('@Accessibility Verify Login Page Accessibility', async ({ page, accessibilityBuilder }) => {
+    test('Verify Login Page Accessibility', 
+    {
+        tag:['@Accessibility']
+    },
+    async ({ page, accessibilityBuilder }) => {
         await page.goto('/family_tree');
 
         await test.step('Verify login page accessibility', async () => {
@@ -45,3 +53,5 @@ test.describe('@Scooby_Doo Scooby-Doo Family Tree Application Login Tests', () =
         });
     });
 });
+
+export { test };

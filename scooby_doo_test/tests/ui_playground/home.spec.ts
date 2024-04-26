@@ -29,7 +29,11 @@ test.use({
   });
 
 
-test.describe('@UI_Playground Home Page Tests for UI Test Automation Playground', () => {
+test.describe('Home Page Tests for UI Test Automation Playground', 
+    {
+        tag:['@UI_Playground']
+    },
+    () => {
     test('Verify Title on Home Page', async ({ 
         page,
         homePage,

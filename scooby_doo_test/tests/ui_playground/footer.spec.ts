@@ -7,7 +7,11 @@ test.use({
   });
 
 
-test.describe('@UI_Playground Footer Component Tests for UI Test Automation Playground', () => {
+test.describe('Footer Component Tests for UI Test Automation Playground',  
+    {
+        tag:['@UI_Playground']
+    },
+    () => {
     test('Verify Star Project Link on Footer Sends User to Right Page', async ({ 
         page,
         footerComp

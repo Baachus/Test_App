@@ -3,7 +3,11 @@ import { faker } from '@faker-js/faker';
 import { RandomData } from '../../utils/random_data';
 import test from '../../fixtures/test_setup_scooby_doo';
 
-test.describe('@Scooby_Doo Remove Family Member Tests', () => {
+test.describe('Remove Family Member Tests', 
+    {
+        tag:['@Scooby-Doo']
+    },
+    () => {
     test('Remove family member and verify successful removal', async ({ 
         page,
         indexPage,
@@ -61,7 +65,11 @@ test.describe('@Scooby_Doo Remove Family Member Tests', () => {
     });
 
     
-    test('@Accessibility Verify Remove Family Member Accessibility', async ({ 
+    test('Verify Remove Family Member Accessibility', 
+    {
+        tag:['@Accessibility']
+    },
+    async ({ 
         loginPage, 
         headerComp,
         accessibilityBuilder 

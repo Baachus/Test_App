@@ -7,7 +7,11 @@ test.use({
   });
 
 
-test.describe('@UI_Playground Scrollbars Data Tests', () => {
+test.describe('Scrollbars Data Tests',
+    {
+        tag:['@UI_Playground']
+    },
+    () => {
     test('Verify Title, labels, and text', async ({ 
         page,
         homePage,

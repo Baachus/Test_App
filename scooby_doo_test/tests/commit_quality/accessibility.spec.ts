@@ -6,7 +6,7 @@ test.use({
 });
 
 test.describe('@Commit_Quality Practice API page', () => {
-  test('should not have any automatically detectable accessibility issues', async ({ page, accessibilityBuilder }) => {
+  test('@Accessibility should not have any automatically detectable accessibility issues', async ({ page, accessibilityBuilder }) => {
     await page.goto('practice-api/');
 
     await page.locator('.back-link').waitFor();
@@ -18,7 +18,7 @@ test.describe('@Commit_Quality Practice API page', () => {
     expect(accessibilityScanResults.violations).toEqual([]);
   });
 
-  test('stuff', async ({ page, request }) => {
+  test('@Accessibility stuff', async ({ page, request }) => {
     await page.goto('practice-api/');
 
     await page.locator('.back-link').waitFor();

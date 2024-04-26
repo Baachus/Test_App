@@ -7,7 +7,11 @@ test.use({
   });
 
 
-test.describe('@UI_Playground Overlapped Element Data Tests', () => {
+test.describe('Overlapped Element Data Tests', 
+    {
+        tag:['@UI_Playground']
+    },
+    () => {
     test('Verify Title, labels, and text', async ({ 
         page,
         homePage,

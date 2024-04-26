@@ -7,7 +7,11 @@ test.use({
   });
 
 
-test.describe('@UI_Playground Header Component Tests for UI Test Automation Playground', () => {
+test.describe('Header Component Tests for UI Test Automation Playground', 
+    {
+        tag:['@UI_Playground']
+    },
+    () => {
     test('Verify Home Link on Header Sends User to Right Page', async ({ 
         page,
         headerComp

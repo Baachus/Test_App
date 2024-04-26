@@ -7,7 +7,11 @@ test.use({
   });
 
 
-test.describe('@UI_Playground Dynamic ID Tests', () => {
+test.describe('Dynamic ID Tests',  
+    {
+        tag:['@UI_Playground']
+    },
+    () => {
     test('Verify Title, labels, and text', async ({ 
         page,
         homePage,

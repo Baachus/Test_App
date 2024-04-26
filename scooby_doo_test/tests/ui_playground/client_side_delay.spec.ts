@@ -7,7 +7,11 @@ test.use({
   });
 
 
-test.describe('@UI_Playground Client Side Delay Tests', () => {
+test.describe('@ Client Side Delay Tests', 
+    {
+        tag:['@UI_Playground']
+    },
+    () => {
     test('Verify Title, Labels, and Text', async ({ 
         page,
         homePage,

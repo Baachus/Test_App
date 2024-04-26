@@ -1,5 +1,4 @@
 import { expect } from '@playwright/test';
-import { ColorRange } from '../../utils/color_range';
 import test from '../../fixtures/test_setup_ui_playground';
 
 test.use({
@@ -8,7 +7,11 @@ test.use({
   });
 
 
-test.describe('@UI_Playground Click Tests', () => {
+test.describe('Click Tests', 
+        {
+            tag:['@UI_Playground']
+        },
+() => {
     test('Verify Title, Labels, and Text', async ({ 
         page,
         homePage,

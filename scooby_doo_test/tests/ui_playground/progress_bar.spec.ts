@@ -7,7 +7,11 @@ test.use({
   });
 
 
-test.describe('@UI_Playground Progress Bar Tests', () => {
+test.describe('Progress Bar Tests', 
+    {
+        tag:['@UI_Playground']
+    },
+    () => {
     test('Verify Title, Labels, and Text', async ({ 
         page,
         homePage,

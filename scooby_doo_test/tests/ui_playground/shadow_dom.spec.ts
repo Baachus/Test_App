@@ -7,7 +7,11 @@ test.use({
   });
 
 
-test.describe('@UI_Playground Shadow DOM Tests', () => {
+test.describe('Shadow DOM Tests',
+    {
+        tag:['@UI_Playground']
+    },
+    () => {
     test('Verify Title, Labels, and Text', async ({ 
         page,
         homePage,
