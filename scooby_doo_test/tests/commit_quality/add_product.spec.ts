@@ -6,7 +6,11 @@ test.use({
   baseURL: 'https://commitquality.com/',
 });
 
-test.describe('@Commit_Quality Add Product Tests', () => {
+test.describe('Add Product Tests', 
+  {
+      tag:['@Commit_Quality']
+  },
+  () => {
   test('Adding Product Redirects Back to Product Page', async ({
     page,
     addProductPage

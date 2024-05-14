@@ -50,7 +50,7 @@ class Command(BaseCommand):
                 name='Dada-Doo',
                 relationship='Father',
                 gang='Scooby-Doo',
-                appearance='{"TV":[{"SHOW":"13 Ghosts of Scooby Doo","SEASON":1,"EPISODE":9,"RELEASE_YEAR":1978}],"Movie":[{}],"APPEARED":true}',
+                appearance='{"TV":[{"SHOW":"13 Ghosts of Scooby Doo","SEASON":1,"EPISODE":9,"RELEASE_YEAR":1978}, {"SHOW":"13 Ghosts of Scooby Doo","SEASON":1,"EPISODE":12,"RELEASE_YEAR":1978}],"Movie":[{}],"APPEARED":true}',
                 image='family_members/Dada-Doo.jpg',
                 user_id=1
             )
@@ -58,7 +58,7 @@ class Command(BaseCommand):
                 name='Mumsy-Doo',
                 relationship='Mother',
                 gang='Scooby-Doo',
-                appearance='{"TV":[{"SHOW":"13 Ghosts of Scooby Doo","SEASON":1,"EPISODE":9,"RELEASE_YEAR":1978}],"Movie":[{}],"APPEARED":true}',
+                appearance='{"TV":[{"SHOW":"13 Ghosts of Scooby Doo","SEASON":1,"EPISODE":9,"RELEASE_YEAR":1978}, {"SHOW":"13 Ghosts of Scooby Doo","SEASON":1,"EPISODE":12,"RELEASE_YEAR":1978}],"Movie":[{}],"APPEARED":true}',
                 image='family_members/Mumsy-Doo.jpg',
                 user_id=1
             )

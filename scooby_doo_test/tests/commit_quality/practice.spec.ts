@@ -5,7 +5,11 @@ test.use({
   baseURL: 'https://commitquality.com/',
 });
 
-test.describe('@Commit_Quality Practice page', () => {
+test.describe('Practice page', 
+    {
+        tag:['@Commit_Quality']
+    },
+    () => {
     test('Verify Titles', async ({
       page,
       practicePage,

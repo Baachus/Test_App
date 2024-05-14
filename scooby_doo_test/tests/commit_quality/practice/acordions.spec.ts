@@ -5,7 +5,11 @@ test.use({
   baseURL: 'https://commitquality.com/',
 });
 
-test.describe('@Commit_Quality Accordions Practice page', () => {
+test.describe('Accordions Practice page', 
+    {
+        tag:['@Commit_Quality']
+    },
+    () => {
   test('Back to Practice', async ({
     page,
     practicePage,
@@ -25,7 +29,11 @@ test.describe('@Commit_Quality Accordions Practice page', () => {
   });
 });
 
-test.describe('@Commit_Quality Accordions Practice page - Accordion 1', () => {
+test.describe('Accordions Practice page - Accordion 1', 
+    {
+        tag:['@Commit_Quality']
+    },
+    () => {
   test('Click Me Buttons Appear in Accordion 1', async ({
     page,
     practicePage,
@@ -107,8 +115,12 @@ test.describe('@Commit_Quality Accordions Practice page - Accordion 1', () => {
   });
 });
 
-test.describe('@Commit_Quality Accordions Practice page - Accordion 2', () => {
-  test('Radio Buttons Appear in Accordion 2', async ({
+test.describe('Accordions Practice page - Accordion 2', 
+    {
+        tag:['@Commit_Quality']
+    },
+    () => {
+    test('Radio Buttons Appear in Accordion 2', async ({
     page,
     practicePage,
     accordionsPage,
@@ -126,28 +138,28 @@ test.describe('@Commit_Quality Accordions Practice page - Accordion 2', () => {
     });
 
     test('Radio Buttons Clickable in Accordion 2', async ({
-      page,
-      practicePage,
-      accordionsPage,
-      }) => {
-          await test.step('Navigate to the accordions page', async () => {
-              await page.goto('practice');
-              await practicePage.clickAccordionLink();
-          });
-  
-          await test.step('Open Accordion 2 and Click Radio Button 1', async () => {
-              await accordionsPage.clickAccordion2();
-              await accordionsPage.clickRadioButton1();
-              expect(await accordionsPage.getRadioButton1Result()).toBe('option1 clicked');
-          });
-          
-          await test.step('Click Radio Button 2', async () => {
+    page,
+    practicePage,
+    accordionsPage,
+    }) => {
+        await test.step('Navigate to the accordions page', async () => {
+            await page.goto('practice');
+            await practicePage.clickAccordionLink();
+        });
+
+        await test.step('Open Accordion 2 and Click Radio Button 1', async () => {
+            await accordionsPage.clickAccordion2();
+            await accordionsPage.clickRadioButton1();
+            expect(await accordionsPage.getRadioButton1Result()).toBe('option1 clicked');
+        });
+        
+        await test.step('Click Radio Button 2', async () => {
             await accordionsPage.clickRadioButton2();
             expect(await accordionsPage.getRadioButton2Result()).toBe('option2 clicked');
         });
-      });
+    });
 
-  test('Radio Buttons Result Clear in Accordion 2 After Closing Accordion', async ({
+    test('Radio Buttons Result Clear in Accordion 2 After Closing Accordion', async ({
     page,
     practicePage,
     accordionsPage,
@@ -184,8 +196,12 @@ test.describe('@Commit_Quality Accordions Practice page - Accordion 2', () => {
     });
 });
 
-test.describe('@Commit_Quality Accordions Practice page - Accordion 3', () => {
-  test('Checkboxes Appear in Accordion 3', async ({
+test.describe('Accordions Practice page - Accordion 3',
+    {
+        tag:['@Commit_Quality']
+    },
+    () => {
+    test('Checkboxes Appear in Accordion 3', async ({
     page,
     practicePage,
     accordionsPage,
@@ -202,8 +218,8 @@ test.describe('@Commit_Quality Accordions Practice page - Accordion 3', () => {
             expect(await accordionsPage.getCheckbox3Visible()).toBe(true);
         });
     });
-    
-  test('Checkbox Results Appear in Accordion 3', async ({
+
+    test('Checkbox Results Appear in Accordion 3', async ({
     page,
     practicePage,
     accordionsPage,
@@ -229,8 +245,8 @@ test.describe('@Commit_Quality Accordions Practice page - Accordion 3', () => {
             expect(await accordionsPage.getCheckbox3Result()).toBe('Checkbox 3 checked');
         });
     });
-    
-  test('Checkbox Results Clear in Accordion 3 After Closing Accordion', async ({
+
+    test('Checkbox Results Clear in Accordion 3 After Closing Accordion', async ({
     page,
     practicePage,
     accordionsPage,
@@ -258,4 +274,4 @@ test.describe('@Commit_Quality Accordions Practice page - Accordion 3', () => {
             expect(await accordionsPage.getCheckbox3ResultVisible()).toBe(false);
         });
     });
-  });
+});

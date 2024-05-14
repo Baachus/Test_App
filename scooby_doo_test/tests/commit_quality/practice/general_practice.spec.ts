@@ -5,7 +5,11 @@ test.use({
   baseURL: 'https://commitquality.com/',
 });
 
-test.describe('@Commit_Quality General Components Practice page', () => {
+test.describe('General Components Practice page', 
+  {
+    tag:['@Commit_Quality']
+  },
+  () => {
   test('Back to Practice', async ({
     page,
     practicePage,
@@ -24,135 +28,143 @@ test.describe('@Commit_Quality General Components Practice page', () => {
   });
 });
 
-test.describe('@Commit_Quality General Components Practice page - Buttons', () => {
-    test('Click Me Button Generates Success Message', async ({
-      page,
-      practicePage,
-      generalPracticePage,
-      }) => {
-        await test.step('Navigate to the general components page', async () => {
-          await page.goto('practice');
-          await practicePage.clickButtonsLink();
-        });
+test.describe('General Components Practice page - Buttons', 
+  {
+      tag:['@Commit_Quality']
+  },
+  () => {
+  test('Click Me Button Generates Success Message', async ({
+    page,
+    practicePage,
+    generalPracticePage,
+    }) => {
+      await test.step('Navigate to the general components page', async () => {
+        await page.goto('practice');
+        await practicePage.clickButtonsLink();
+      });
 
-        await test.step('Click the Me Button', async () => {
-            await generalPracticePage.clickClickMeButton("click");
-            expect(await generalPracticePage.getClickMeResult()).toBe('Button clicked');
-        });
-    });
+      await test.step('Click the Me Button', async () => {
+          await generalPracticePage.clickClickMeButton("click");
+          expect(await generalPracticePage.getClickMeResult()).toBe('Button clicked');
+      });
+  });
 
-    test('Invalid Clicks on Click Me Button Generates No Message', async ({
-      page,
-      practicePage,
-      generalPracticePage,
-      }) => {
-        await test.step('Navigate to the general components page', async () => {
-          await page.goto('practice');
-          await practicePage.clickButtonsLink();
-        });
+  test('Invalid Clicks on Click Me Button Generates No Message', async ({
+    page,
+    practicePage,
+    generalPracticePage,
+    }) => {
+      await test.step('Navigate to the general components page', async () => {
+        await page.goto('practice');
+        await practicePage.clickButtonsLink();
+      });
 
-        await test.step('Right Click the Click Me Button', async () => {
-            await generalPracticePage.clickClickMeButton("click");
+      await test.step('Right Click the Click Me Button', async () => {
+          await generalPracticePage.clickClickMeButton("click");
 
-            //TODO: This is always passing, need to fix
-            const isVisible = await page.isVisible(generalPracticePage.click_me_result);
-            console.log(isVisible);
-            expect(isVisible).toBe(false);
-        });
-    });
+          //TODO: This is always passing, need to fix
+          const isVisible = await page.isVisible(generalPracticePage.click_me_result);
+          console.log(isVisible);
+          expect(isVisible).toBe(false);
+      });
+  });
 
-    test('Double Click Me Button Generates Success Message', async ({
-      page,
-      practicePage,
-      generalPracticePage,
-      }) => {
-        await test.step('Navigate to the general components page', async () => {
-          await page.goto('practice');
-          await practicePage.clickButtonsLink();
-        });
+  test('Double Click Me Button Generates Success Message', async ({
+    page,
+    practicePage,
+    generalPracticePage,
+    }) => {
+      await test.step('Navigate to the general components page', async () => {
+        await page.goto('practice');
+        await practicePage.clickButtonsLink();
+      });
 
-        await test.step('Double Click Me Button', async () => {
-            await generalPracticePage.clickDoubleClickMeButton("double");
-            expect(await generalPracticePage.getDoubleClickMeResult()).toBe('Button double clicked');
-        });
-    });
+      await test.step('Double Click Me Button', async () => {
+          await generalPracticePage.clickDoubleClickMeButton("double");
+          expect(await generalPracticePage.getDoubleClickMeResult()).toBe('Button double clicked');
+      });
+  });
 
-    test('Invalid Clicks on Double Click Me Button Generates No Message', async ({
-      page,
-      practicePage,
-      generalPracticePage,
-      }) => {
-        await test.step('Navigate to the general components page', async () => {
-          await page.goto('practice');
-          await practicePage.clickButtonsLink();
-        });
+  test('Invalid Clicks on Double Click Me Button Generates No Message', async ({
+    page,
+    practicePage,
+    generalPracticePage,
+    }) => {
+      await test.step('Navigate to the general components page', async () => {
+        await page.goto('practice');
+        await practicePage.clickButtonsLink();
+      });
 
-        await test.step('Right Click the Double Click Me Button', async () => {
-            await generalPracticePage.clickDoubleClickMeButton("right");
+      await test.step('Right Click the Double Click Me Button', async () => {
+          await generalPracticePage.clickDoubleClickMeButton("right");
 
-            //TODO: This is always passing, need to fix
-            const isVisible = await page.isVisible(generalPracticePage.double_click_me_result);
-            console.log(isVisible);
-            expect(isVisible).toBe(false);
-        });
+          //TODO: This is always passing, need to fix
+          const isVisible = await page.isVisible(generalPracticePage.double_click_me_result);
+          console.log(isVisible);
+          expect(isVisible).toBe(false);
+      });
 
-        await test.step('Single Click the Double Click Me Button', async () => {
-            await generalPracticePage.clickDoubleClickMeButton("click");
+      await test.step('Single Click the Double Click Me Button', async () => {
+          await generalPracticePage.clickDoubleClickMeButton("click");
 
-            //TODO: This is always passing, need to fix
-            const isVisible = await page.isVisible(generalPracticePage.double_click_me_result);
-            console.log(isVisible);
-            expect(isVisible).toBe(false);
-        });
-    });
+          //TODO: This is always passing, need to fix
+          const isVisible = await page.isVisible(generalPracticePage.double_click_me_result);
+          console.log(isVisible);
+          expect(isVisible).toBe(false);
+      });
+  });
 
-    test('Right Click Me Button Generates Success Message', async ({
-      page,
-      practicePage,
-      generalPracticePage,
-      }) => {
-        await test.step('Navigate to the general components page', async () => {
-          await page.goto('practice');
-          await practicePage.clickButtonsLink();
-        });
+  test('Right Click Me Button Generates Success Message', async ({
+    page,
+    practicePage,
+    generalPracticePage,
+    }) => {
+      await test.step('Navigate to the general components page', async () => {
+        await page.goto('practice');
+        await practicePage.clickButtonsLink();
+      });
 
-        await test.step('Right Click Me Button', async () => {
-            await generalPracticePage.clickRightClickMeButton("right");
-            expect(await generalPracticePage.getRightClickMeResult()).toBe('Button right mouse clicked');
-        });
-    });
+      await test.step('Right Click Me Button', async () => {
+          await generalPracticePage.clickRightClickMeButton("right");
+          expect(await generalPracticePage.getRightClickMeResult()).toBe('Button right mouse clicked');
+      });
+  });
 
-    test('Invalid Clicks on Right Click Me Button Generates No Message', async ({
-      page,
-      practicePage,
-      generalPracticePage,
-      }) => {
-        await test.step('Navigate to the general components page', async () => {
-          await page.goto('practice');
-          await practicePage.clickButtonsLink();
-        });
+  test('Invalid Clicks on Right Click Me Button Generates No Message', async ({
+    page,
+    practicePage,
+    generalPracticePage,
+    }) => {
+      await test.step('Navigate to the general components page', async () => {
+        await page.goto('practice');
+        await practicePage.clickButtonsLink();
+      });
 
-        await test.step('Single Click the Right Click Me Button', async () => {
-            await generalPracticePage.clickRightClickMeButton("click");
+      await test.step('Single Click the Right Click Me Button', async () => {
+          await generalPracticePage.clickRightClickMeButton("click");
 
-            //TODO: This is always passing, need to fix
-            const isVisible = await page.isVisible(generalPracticePage.right_click_me_result);
-            console.log(isVisible);
-            expect(isVisible).toBe(false);
-        });
+          //TODO: This is always passing, need to fix
+          const isVisible = await page.isVisible(generalPracticePage.right_click_me_result);
+          console.log(isVisible);
+          expect(isVisible).toBe(false);
+      });
 
-        await test.step('Double Click the Right Click Me Button', async () => {
-            await generalPracticePage.clickRightClickMeButton("double");
+      await test.step('Double Click the Right Click Me Button', async () => {
+          await generalPracticePage.clickRightClickMeButton("double");
 
-            //TODO: This is always passing, need to fix
-            const isVisible = await page.isVisible(generalPracticePage.right_click_me_result);
-            console.log(isVisible);
-            expect(isVisible).toBe(false);
-        });
-    });
+          //TODO: This is always passing, need to fix
+          const isVisible = await page.isVisible(generalPracticePage.right_click_me_result);
+          console.log(isVisible);
+          expect(isVisible).toBe(false);
+      });
+  });
 });
 
-test.describe('@Commit_Quality General Components Practice page - Radio Buttons', () => {
+test.describe('General Components Practice page - Radio Buttons',
+  {
+      tag:['@Commit_Quality']
+  },
+  () => {
   test('Click First Radio Button', async ({
     page,
     practicePage,
@@ -217,7 +229,11 @@ test.describe('@Commit_Quality General Components Practice page - Radio Buttons'
   });
 });
 
-test.describe('@Commit_Quality General Components Practice page - Select Option', () => {
+test.describe('General Components Practice page - Select Option', 
+  {
+      tag:['@Commit_Quality']
+  },
+  () => {
   test.skip('Select All Options', async ({  // Skip for now because of the issue with the select element
     page,
     practicePage,
@@ -250,7 +266,11 @@ test.describe('@Commit_Quality General Components Practice page - Select Option'
   });
 });
 
-test.describe('@Commit_Quality General Components Practice page - Checkboxes', () => {
+test.describe('General Components Practice page - Checkboxes', 
+  {
+      tag:['@Commit_Quality']
+  },
+  () => {
   test('Check Each Box', async ({
     page,
     practicePage,
@@ -319,7 +339,11 @@ test.describe('@Commit_Quality General Components Practice page - Checkboxes', (
     });
 });
 
-test.describe('@Commit_Quality General Components Practice page - Links', () => {
+test.describe('General Components Practice page - Links', 
+  {
+      tag:['@Commit_Quality']
+  },
+  () => {
   test('Click Youtube Link', async ({
     page,
     practicePage,

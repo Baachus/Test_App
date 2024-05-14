@@ -5,11 +5,15 @@ test.use({
   baseURL: 'https://commitquality.com/',
 });
 
-test.describe('@Commit_Quality Header Tests', () => {
+test.describe('Header Tests', 
+  {
+      tag:['@Commit_Quality']
+  },
+  () => {
   test('Navigation should land user on correct page', async ({ 
     page, 
     headerComp
- }) => {
+  }) => {
     await test.step('Navigate to the commit quality page', async () => {
       await page.goto('');
     });

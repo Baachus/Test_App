@@ -5,7 +5,11 @@ test.use({
   baseURL: 'https://commitquality.com/',
 });
 
-test.describe('@Commit_Quality Practice API page', () => {
+test.describe('Practice API page',
+{
+    tag:['@Commit_Quality']
+},
+() => {
   test('@Accessibility should not have any automatically detectable accessibility issues', async ({ page, accessibilityBuilder }) => {
     await page.goto('practice-api/');
 
