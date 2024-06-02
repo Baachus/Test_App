@@ -8,6 +8,7 @@ import { AddProductPage } from './pages/commit_quality/add_product';
 import { PracticePage } from './pages/commit_quality/practice';
 import { GeneralPracticePage } from './pages/commit_quality/practice/general_practice';
 import { AccordionsPage } from './pages/commit_quality/practice/accordions';
+import { PopupPage } from './pages/commit_quality/practice/popup';
 
 class PageFactory {
     // Components
@@ -18,6 +19,7 @@ class PageFactory {
     private practicePage?: PracticePage;
     private generalPracticePage?: GeneralPracticePage;
     private accordionsPage?: AccordionsPage;
+    private popupPage?: PopupPage;
 
     constructor(private page: Page) {}
     
@@ -54,6 +56,13 @@ class PageFactory {
             this.accordionsPage = new AccordionsPage(this.page);
         }
         return this.accordionsPage;
+    }
+
+    getPopupPage(): PopupPage {
+        if (!this.popupPage) {
+            this.popupPage = new PopupPage(this.page);
+        }
+        return this.popupPage;
     }
 }
 
