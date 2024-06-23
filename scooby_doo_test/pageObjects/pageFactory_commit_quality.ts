@@ -6,8 +6,10 @@ import { HeaderComp } from './components/commit_quality/header';
 // Pages
 import { AddProductPage } from './pages/commit_quality/add_product';
 import { PracticePage } from './pages/commit_quality/practice';
+
 import { GeneralPracticePage } from './pages/commit_quality/practice/general_practice';
 import { AccordionsPage } from './pages/commit_quality/practice/accordions';
+import { DownloadPage } from './pages/commit_quality/practice/download';
 import { PopupPage } from './pages/commit_quality/practice/popup';
 
 class PageFactory {
@@ -19,6 +21,7 @@ class PageFactory {
     private practicePage?: PracticePage;
     private generalPracticePage?: GeneralPracticePage;
     private accordionsPage?: AccordionsPage;
+    private downloadPage?: DownloadPage;
     private popupPage?: PopupPage;
 
     constructor(private page: Page) {}
@@ -56,6 +59,13 @@ class PageFactory {
             this.accordionsPage = new AccordionsPage(this.page);
         }
         return this.accordionsPage;
+    }
+
+    getDownloadPage(): DownloadPage {
+        if (!this.downloadPage) {
+            this.downloadPage = new DownloadPage(this.page);
+        }
+        return this.downloadPage;
     }
 
     getPopupPage(): PopupPage {

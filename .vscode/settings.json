@@ -45,7 +45,8 @@
         "Shaggy",
         "textinput",
         "UITAP",
-        "verifytext"
+        "verifytext",
+        "viewsets"
     ],
     "python.testing.pytestArgs": [
         "scooby_doo_test"

@@ -4,18 +4,22 @@ This file is used to create the URL patterns for the family tree app.
 '''
 
 # Django imports
-from django.urls import path
+from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from rest_framework.routers import DefaultRouter
 
 # Local imports
-from .views import index, login_user, logout_user, register_user
+from .views import index, login_user, logout_user, register_user, FamilyMemberViewSet
 from .views import add_member, delete_member, view_member, edit_member, view_gang_tree
 
 # Define the app name
 #pylint: disable=invalid-name
 app_name = 'family_tree'
 #pylint: enable=invalid-name
+
+router = DefaultRouter()
+router.register(r'get_family_member', FamilyMemberViewSet)
 
 # Define the URL patterns
 urlpatterns = [
@@ -31,6 +35,7 @@ urlpatterns = [
     path('view_member/<int:member_id>/', view_member, name='view_member'),
     path('edit_member/<int:member_id>/', edit_member, name='edit_member'),
     path('view_gang_tree/', view_gang_tree, name='view_gang_tree'),
+    path('', include(router.urls)),
 ]
 
 if settings.DEBUG:

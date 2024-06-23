@@ -11,9 +11,12 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 
+from rest_framework import viewsets
+
 # Local imports
 from .forms import FamilyForm, DeleteMemberForm
 from .models import FamilyModel
+from .serializers import FamilyMemberSerializer
 
 # Login view
 def login_user(request):
@@ -191,3 +194,7 @@ def view_gang_tree(request):
     '''
     ctx = {"user": request.user}
     return render(request, "family_tree/pages/view_gang_tree.html", ctx)
+
+class FamilyMemberViewSet(viewsets.ModelViewSet):
+    queryset = FamilyModel.objects.all()
+    serializer_class = FamilyMemberSerializer

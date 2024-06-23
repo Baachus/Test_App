@@ -55,6 +55,10 @@ class PracticePage {
     mock_data_layer_title = 'Mock Datalayer'
     mock_data_layer_link = 'Click here to practice testing a mocked version of a datalayer'
 
+    // * File Download
+    download_title = 'File Download'
+    download_link = 'Click here to practice testing file downloading'
+
     // Methods
     async getPracticeTitle() {
         return await this.page.innerText(`text=${this.practice_title}`);
@@ -228,6 +232,19 @@ class PracticePage {
 
     async clickMockDataLayerLink() {
         await this.page.click(`text=${this.mock_data_layer_link}`);
+    }
+
+    // * File Download
+    async getFileDownloadTitle() {
+        return await this.page.innerText(`text=${this.download_title}`);
+    }
+
+    async getFileDownloadLink() {
+        return await this.page.innerText(`text=${this.download_link}`);
+    }
+
+    async clickFileDownloadLink() {
+        await this.page.click(`text=${this.download_link}`);
     }
 }
 

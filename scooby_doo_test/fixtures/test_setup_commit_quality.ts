@@ -10,6 +10,7 @@ import { AddProductPage } from '../pageObjects/pages/commit_quality/add_product'
 import { PracticePage } from '../pageObjects/pages/commit_quality/practice';
 import { GeneralPracticePage } from '../pageObjects/pages/commit_quality/practice/general_practice';
 import { AccordionsPage } from '../pageObjects/pages/commit_quality/practice/accordions';
+import { DownloadPage } from '../pageObjects/pages/commit_quality/practice/download';
 import { PopupPage } from '../pageObjects/pages/commit_quality/practice/popup';
 
 // Extend the base test to include page objects
@@ -20,6 +21,7 @@ const test = baseTest.extend<{
     practicePage: PracticePage,
     generalPracticePage: GeneralPracticePage,
     accordionsPage: AccordionsPage,
+    downloadPage: DownloadPage,
     popupPage: PopupPage,
     accessibilityBuilder: AxeBuilder
 }>({
@@ -41,6 +43,9 @@ const test = baseTest.extend<{
     },
     accordionsPage: async ({ factory }, use) => {
         await use(factory.getAccordionsPage());
+    },
+    downloadPage: async ({ factory}, use) => {
+        await use(factory.getDownloadPage());
     },
     popupPage: async ({ factory }, use) => {
         await use(factory.getPopupPage());
