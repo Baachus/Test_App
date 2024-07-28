@@ -11,6 +11,7 @@ import { GeneralPracticePage } from './pages/commit_quality/practice/general_pra
 import { AccordionsPage } from './pages/commit_quality/practice/accordions';
 import { DownloadPage } from './pages/commit_quality/practice/download';
 import { PopupPage } from './pages/commit_quality/practice/popup';
+import { TimeTestingPage } from './pages/commit_quality/practice/time_testing';
 
 class PageFactory {
     // Components
@@ -23,6 +24,7 @@ class PageFactory {
     private accordionsPage?: AccordionsPage;
     private downloadPage?: DownloadPage;
     private popupPage?: PopupPage;
+    private timeTestingPage?: TimeTestingPage;
 
     constructor(private page: Page) {}
     
@@ -73,6 +75,13 @@ class PageFactory {
             this.popupPage = new PopupPage(this.page);
         }
         return this.popupPage;
+    }
+
+    getTimeTestingPage(): TimeTestingPage {
+        if(!this.timeTestingPage) {
+            this.timeTestingPage = new TimeTestingPage(this.page);
+        }
+        return this.timeTestingPage;
     }
 }
 

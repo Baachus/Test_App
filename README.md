@@ -55,7 +55,7 @@ Performance tests are located in scooby_doo_test located under the artillery fol
 They are setup to run utilizing Artillery for performance testing purposes.  To run these commands 
 you will need to follow these steps:
 ```bash
-artillery run artillery.yml --output test-results/performance-test-run-report.json
+artillery run tests/scooby_doo/artillery/artillery.yml --output test-results/performance-test-run-report.json
 artillery report test-results/performance-test-run-report.json
 ```
 

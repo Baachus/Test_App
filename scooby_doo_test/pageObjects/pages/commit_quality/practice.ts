@@ -59,6 +59,10 @@ class PracticePage {
     download_title = 'File Download'
     download_link = 'Click here to practice testing file downloading'
 
+    // * Time Testing
+    time_testing_title = 'Time testing'
+    time_testing_link = 'Click here to practice testing time'
+
     // Methods
     async getPracticeTitle() {
         return await this.page.innerText(`text=${this.practice_title}`);
@@ -245,6 +249,19 @@ class PracticePage {
 
     async clickFileDownloadLink() {
         await this.page.click(`text=${this.download_link}`);
+    }
+
+    // * Time Testing
+    async getTimeTestingTitle() {
+        return await this.page.innerText(`text=${this.time_testing_title}`);
+    }
+
+    async getTimeTestingLink() {
+        return await this.page.innerText(`text=${this.time_testing_link}`);
+    }
+
+    async clickTimeTestingLink() {
+        await this.page.click(`text=${this.time_testing_link}`);
     }
 }
 
